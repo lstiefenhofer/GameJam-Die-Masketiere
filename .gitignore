@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+
+godot-cpp/
+.vscode
+.idea
+
+*.os
+*.obj
+*.dblite
+
+Reference/
+RawAssets/
+*Profiling.json
+Builds/
+
+*.pdb
+
+*.tmp
+
