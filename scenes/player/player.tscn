@@ -20,3 +20,6 @@ shape = SubResource("CapsuleShape2D_x7p2l")
 position = Vector2(-0.21500014, -14.345)
 scale = Vector2(19.57, 29.31)
 texture = SubResource("PlaceholderTexture2D_x7p2l")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1551943026]
+zoom = Vector2(4, 4)

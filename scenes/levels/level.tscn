@@ -4,5 +4,10 @@
 
 [node name="Level" type="Node2D" unique_id=1222927860]
 
+[node name="Tilemaps" type="Node2D" parent="." unique_id=873392170]
+position = Vector2(-3, -1)
+
 [node name="Player" parent="." unique_id=2059150865 instance=ExtResource("1_377w7")]
 position = Vector2(456, 259)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=373292418]
