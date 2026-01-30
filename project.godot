@@ -14,6 +14,10 @@ config/name="GGJ26-DieMasketiere"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="GGJ26-DieMasketiere"
+
 [input]
 
 left={
@@ -58,4 +62,3 @@ down={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="forward_plus"
