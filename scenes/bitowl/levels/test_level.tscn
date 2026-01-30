@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bviuebiesy802" path="res://scenes/levels/level.tscn" id="1_d588e"]
 [ext_resource type="Texture2D" uid="uid://b281q8uvhqo0r" path="res://art/tilemaps/tilemap_packed.png" id="3_53hy3"]
+[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/simple_enemy.tscn" id="3_efktg"]
 [ext_resource type="PackedScene" uid="uid://7an8l0cxxr8c" path="res://scenes/collectibles/mask.tscn" id="3_jq4o1"]
 [ext_resource type="PackedScene" uid="uid://c41x2matg7jn5" path="res://scenes/collectibles/coin.tscn" id="3_mhkdx"]
 [ext_resource type="PackedScene" uid="uid://dseuc47t877cu" path="res://scenes/objects/tree_large.tscn" id="5_popwy"]
@@ -369,6 +370,9 @@ tile_set = SubResource("TileSet_jq4o1")
 
 [node name="Player" parent="." index="1" unique_id=2059150865]
 position = Vector2(134, 91)
+
+[node name="SimpleEnemy" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=616659278 instance=ExtResource("3_efktg")]
+position = Vector2(14, 87)
 
 [node name="Collectiblesx" type="Node2D" parent="." index="3" unique_id=1042568706]
 y_sort_enabled = true

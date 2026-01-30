@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bviuebiesy802"]
 
 [ext_resource type="PackedScene" uid="uid://c35xqt2nqbecb" path="res://scenes/player/player.tscn" id="1_377w7"]
+[ext_resource type="Script" uid="uid://bacn1xql4rx23" path="res://scenes/levels/level.gd" id="1_bovvr"]
 
 [node name="Level" type="Node2D" unique_id=1222927860]
 y_sort_enabled = true
+script = ExtResource("1_bovvr")
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=873392170]
 position = Vector2(-3, -1)

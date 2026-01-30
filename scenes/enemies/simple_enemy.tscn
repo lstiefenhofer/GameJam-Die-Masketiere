@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dtu7noaxo562u"]
+
+[ext_resource type="Texture2D" uid="uid://ddtvai8bt46wb" path="res://art/sprites/enemy_placeholder.png" id="1_gsiem"]
+[ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/simple_enemy.gd" id="1_o10tv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o10tv"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o10tv"]
+radius = 100.0
+
+[node name="SimpleEnemy" type="CharacterBody2D" unique_id=616659278]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_o10tv")
+
+[node name="EnemyPlaceholder" type="Sprite2D" parent="." unique_id=864650589]
+position = Vector2(0, -8)
+texture = ExtResource("1_gsiem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783457394]
+position = Vector2(1, -5)
+shape = SubResource("CapsuleShape2D_o10tv")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1472084244]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1297026147]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_o10tv")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
