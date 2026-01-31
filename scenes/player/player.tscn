@@ -1,193 +1,14 @@
 [gd_scene format=4 uid="uid://c35xqt2nqbecb"]
 
 [ext_resource type="Script" uid="uid://bi3md3unr3sa8" path="res://scenes/player/player.gd" id="1_8afob"]
-[ext_resource type="Texture2D" uid="uid://ckw482qaimis3" path="res://art/entities/PlayerLegs.png" id="2_gmlin"]
-[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_p47bc"]
-[ext_resource type="Texture2D" uid="uid://bo0guleu73iym" path="res://art/entities/PlayerBody.png" id="3_lvxji"]
-[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="4_0owmy"]
+[ext_resource type="PackedScene" uid="uid://d3kibws0spiyi" path="res://art/entities/PlayerLegs.ase" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://chl2jubt8smh3" path="res://art/entities/PlayerBody.ase" id="3_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
 radius = 3.0
 height = 16.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x7p2l"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0owmy"]
-shader = ExtResource("2_p47bc")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash = 0.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uns8x"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(29, 0, 13, 27)
-margin = Rect2(25, 23, 51, 37)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dafk7"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(15, 0, 14, 29)
-margin = Rect2(25, 21, 50, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8eym1"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(0, 0, 15, 30)
-margin = Rect2(25, 20, 49, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8e63b"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(29, 27, 13, 24)
-margin = Rect2(25, 26, 51, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by6iu"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(15, 29, 13, 24)
-margin = Rect2(26, 25, 51, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_17gsg"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(28, 51, 7, 24)
-margin = Rect2(30, 25, 57, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_al4ng"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(0, 30, 12, 24)
-margin = Rect2(27, 25, 52, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m31mj"]
-atlas = ExtResource("2_gmlin")
-region = Rect2(35, 51, 7, 24)
-margin = Rect2(30, 25, 57, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yt5us"]
-animations = [{
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_uns8x")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_dafk7")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_8eym1")
-}],
-"loop": false,
-"name": &"Attack",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_8e63b")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_8e63b")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_8e63b")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_8e63b")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_by6iu")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_17gsg")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_al4ng")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_m31mj")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 1.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlihn"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(36, 0, 35, 33)
-margin = Rect2(19, 11, 29, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_webfd"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(0, 0, 36, 38)
-margin = Rect2(17, 4, 28, 26)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53l57"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(0, 66, 41, 28)
-margin = Rect2(16, 13, 23, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vsuei"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(71, 0, 35, 33)
-margin = Rect2(19, 10, 29, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcm1d"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(36, 33, 35, 33)
-margin = Rect2(19, 9, 29, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2enq1"]
-atlas = ExtResource("3_lvxji")
-region = Rect2(71, 33, 35, 33)
-margin = Rect2(19, 10, 29, 31)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ax6bn"]
-animations = [{
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_webfd")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_53l57")
-}],
-"loop": false,
-"name": &"Attack",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_vsuei")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_lcm1d")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_2enq1")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_mlihn")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 1.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 21.0
@@ -221,20 +42,15 @@ texture = SubResource("PlaceholderTexture2D_x7p2l")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1551943026]
 zoom = Vector2(4, 4)
 
-[node name="PlayerLegs" type="AnimatedSprite2D" parent="." unique_id=1129114372]
-material = SubResource("ShaderMaterial_0owmy")
-sprite_frames = SubResource("SpriteFrames_yt5us")
+[node name="PlayerLegs" parent="." unique_id=1129114372 instance=ExtResource("2_gmlin")]
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
 
-[node name="PlayerBody" type="AnimatedSprite2D" parent="." unique_id=1992899017]
-material = SubResource("ShaderMaterial_0owmy")
-sprite_frames = SubResource("SpriteFrames_ax6bn")
-animation = &"Attack"
+[node name="PlayerBody" parent="." unique_id=1992899017 instance=ExtResource("3_lvxji")]
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
-script = ExtResource("4_0owmy")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2133087784]
 collision_layer = 0
@@ -249,6 +65,9 @@ debug_color = Color(0.9804799, 0, 0.3832885, 0.41960785)
 [node name="RunningOnConcrete" type="AudioStreamPlayer2D" parent="." unique_id=1037543377]
 stream = SubResource("AudioStreamWAV_p47bc")
 bus = &"SFX"
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=1311828866]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

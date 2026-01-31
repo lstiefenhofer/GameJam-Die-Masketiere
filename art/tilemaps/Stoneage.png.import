@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xqqfaojfbmax"
-path="res://.godot/imported/Solaria Demo Tiles.png-753a2f005f801246c796f01f22523ed9.ctex"
+uid="uid://b7hejkrsjs8r3"
+path="res://.godot/imported/Stoneage.png-56bb1cec5a294be200672bc8d8f6de23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Solaria Demo Tiles.png"
-dest_files=["res://.godot/imported/Solaria Demo Tiles.png-753a2f005f801246c796f01f22523ed9.ctex"]
+source_file="res://art/tilemaps/Stoneage.png"
+dest_files=["res://.godot/imported/Stoneage.png-56bb1cec5a294be200672bc8d8f6de23.ctex"]
 
 [params]
 

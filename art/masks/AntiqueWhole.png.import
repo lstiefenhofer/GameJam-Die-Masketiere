@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hejkrsjs8r3"
-path="res://.godot/imported/Stoneage.png-b2ba21540520f83290dad7bf9a0fcc91.ctex"
+uid="uid://bs3ljxh0cfq2j"
+path="res://.godot/imported/AntiqueWhole.png-aa9d64d4bd93d4bccfa779ccf6e29f48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Stoneage.png"
-dest_files=["res://.godot/imported/Stoneage.png-b2ba21540520f83290dad7bf9a0fcc91.ctex"]
+source_file="res://art/masks/AntiqueWhole.png"
+dest_files=["res://.godot/imported/AntiqueWhole.png-aa9d64d4bd93d4bccfa779ccf6e29f48.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpbaeo0741unn"
-path="res://.godot/imported/antique.png-6b3d98099d54208a9cfe92767c398c17.ctex"
+uid="uid://cahv7fyadmkk"
+path="res://.godot/imported/AntiqueLeft.png-d266e9fcafbb516c357df84971e45d3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/antique.png"
-dest_files=["res://.godot/imported/antique.png-6b3d98099d54208a9cfe92767c398c17.ctex"]
+source_file="res://art/masks/AntiqueLeft.png"
+dest_files=["res://.godot/imported/AntiqueLeft.png-d266e9fcafbb516c357df84971e45d3f.ctex"]
 
 [params]
 
