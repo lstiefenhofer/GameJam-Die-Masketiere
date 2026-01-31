@@ -29,3 +29,19 @@ func _on_settings_pressed() -> void:
 func _on_settings_back_pressed() -> void:
 	settings_menu.visible = false
 	main_menu.visible = true
+
+func set_volume_on_audio_bus(bus: String, value: float) -> void:
+	var id = AudioServer.get_bus_index(bus)
+	var db = linear_to_db(value)
+	AudioServer.set_bus_volume_db(id, db)
+
+func _on_volume_master_value_changed(value: float) -> void:
+	set_volume_on_audio_bus("Master", value)
+
+
+func _on_volume_effects_value_changed(value: float) -> void:
+	set_volume_on_audio_bus("SFX", value)
+
+
+func _on_volume_background_value_changed(value: float) -> void:
+	set_volume_on_audio_bus("Background", value)

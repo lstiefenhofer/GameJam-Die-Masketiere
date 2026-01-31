@@ -159,6 +159,7 @@ layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
+value = 1.0
 
 [node name="LabelEffects" type="Label" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=136222947]
 layout_mode = 2
@@ -169,6 +170,7 @@ layout_mode = 2
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
+value = 1.0
 
 [node name="LabelBackground2" type="Label" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=228902908]
 layout_mode = 2
@@ -178,6 +180,7 @@ text = "Background"
 layout_mode = 2
 max_value = 1.0
 step = 0.05
+value = 1.0
 
 [node name="Graphics" type="Control" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer" unique_id=1197882298]
 layout_mode = 2
@@ -231,6 +234,9 @@ layout_mode = 2
 size_flags_horizontal = 5
 text = "Quit"
 
+[connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeMaster" to="." method="_on_volume_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeEffects" to="." method="_on_volume_effects_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeBackground2" to="." method="_on_volume_background_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/SettingsMenu/Button" to="." method="_on_settings_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/Settings" to="." method="_on_settings_pressed"]
