@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://fxb25wbkuc5c"]
+
+[ext_resource type="Script" uid="uid://cow0lspfj4gin" path="res://scenes/objects/door.gd" id="1_uw3m6"]
+[ext_resource type="Texture2D" uid="uid://eqmg0thkdirj" path="res://art/sprites/doors.png" id="1_yar34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw3m6"]
+size = Vector2(32, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm0wp"]
+size = Vector2(20, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aji8h"]
+size = Vector2(6, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0irj"]
+size = Vector2(6, 13)
+
+[node name="Door" type="StaticBody2D" unique_id=977470783]
+script = ExtResource("1_uw3m6")
+state = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=103970579]
+position = Vector2(0, -18)
+texture = ExtResource("1_yar34")
+hframes = 3
+frame = 2
+
+[node name="ClosedDoorCollision" type="CollisionShape2D" parent="." unique_id=1940486011]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_uw3m6")
+disabled = true
+
+[node name="EnterDoorArea" type="Area2D" parent="." unique_id=2143712640]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterDoorArea" unique_id=1385078557]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_xm0wp")
+debug_color = Color(0.1061792, 0.6368468, 0.3559693, 0.41960785)
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="." unique_id=210847271]
+position = Vector2(-13, -6.5)
+shape = SubResource("RectangleShape2D_aji8h")
+
+[node name="RightCollisionShape2D" type="CollisionShape2D" parent="." unique_id=42715562]
+position = Vector2(13, -6.5)
+shape = SubResource("RectangleShape2D_w0irj")
+
+[connection signal="body_entered" from="EnterDoorArea" to="." method="_on_enter_door_area_body_entered"]

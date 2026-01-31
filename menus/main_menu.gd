@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/bitowl/levels/test_level.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/stoneage.tscn")
 
 
 func _on_quit_pressed() -> void:
