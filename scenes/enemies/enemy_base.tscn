@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/enemy_base.gd" id="1_o10tv"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_01wx1"]
 [ext_resource type="Script" uid="uid://bi05h4nyrvhx4" path="res://scenes/sprite_flash.gd" id="4_hm7hm"]
-[ext_resource type="Script" uid="uid://dsyyefxytmf6d" path="res://scenes/animated_sprite_flash.gd" id="5_2kgy0"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_2kgy0"]
 [ext_resource type="Texture2D" uid="uid://b6lvgfsxxk6us" path="res://art/sprites/circle.png" id="5_hm0mn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm7hm"]
@@ -29,6 +29,7 @@ radius = 20.0
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_o10tv")
+health = 54.105
 
 [node name="EnemyPlaceholder" type="Sprite2D" parent="." unique_id=864650589]
 material = SubResource("ShaderMaterial_hm7hm")
@@ -69,8 +70,6 @@ max_speed = 500.0
 [node name="PathfindingTimer" type="Timer" parent="." unique_id=1834030345]
 autostart = true
 
-[node name="AttackTimer" type="Timer" parent="." unique_id=256909413]
-
 [node name="AttackSprite" type="Sprite2D" parent="." unique_id=34156837]
 modulate = Color(1, 0, 0, 0)
 position = Vector2(1, -6)
@@ -83,4 +82,3 @@ texture = ExtResource("5_hm0mn")
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="PathfindingTimer" to="." method="_on_pathfinding_timer_timeout"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
