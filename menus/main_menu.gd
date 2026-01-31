@@ -45,3 +45,11 @@ func _on_volume_effects_value_changed(value: float) -> void:
 
 func _on_volume_background_value_changed(value: float) -> void:
 	set_volume_on_audio_bus("Background", value)
+
+
+func _on_fullscreen_toggle_toggled(toggled_on: bool) -> void:
+	match toggled_on:
+		true:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

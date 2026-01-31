@@ -176,7 +176,7 @@ value = 1.0
 layout_mode = 2
 text = "Background"
 
-[node name="VolumeBackground2" type="HSlider" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=1406723896]
+[node name="VolumeBackground" type="HSlider" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=1406723896]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
@@ -197,15 +197,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Graphics"
 
-[node name="Fullscreen" type="HBoxContainer" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer" unique_id=914688523]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer/Fullscreen" unique_id=1170832217]
+[node name="FullscreenToggle" type="CheckButton" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer" unique_id=1468982291]
 layout_mode = 2
 text = "Fullscreen"
-
-[node name="Fullscreen" type="CheckButton" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer/Fullscreen" unique_id=1468982291]
-layout_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/MarginBox/SettingsMenu" unique_id=181452792]
 layout_mode = 2
@@ -236,7 +230,8 @@ text = "Quit"
 
 [connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeMaster" to="." method="_on_volume_master_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeEffects" to="." method="_on_volume_effects_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeBackground2" to="." method="_on_volume_background_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeBackground" to="." method="_on_volume_background_value_changed"]
+[connection signal="toggled" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/SettingsMenu/Button" to="." method="_on_settings_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/Settings" to="." method="_on_settings_pressed"]

@@ -22,6 +22,9 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 [autoload]
 
 Globals="*uid://dd1tdv8mp23va"
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
