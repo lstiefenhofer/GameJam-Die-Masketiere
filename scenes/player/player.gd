@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 static var player : Player
 
-@export var speed: float = 20
+@export var speed: float = 10
 @export var damage: float = 1
 
 @export var legs: AnimatedSprite2D
