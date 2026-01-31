@@ -3,12 +3,11 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://chl2jubt8smh3"
-path="res://.godot/imported/PlayerBody.ase-b1f93145ece26241167768f097ed9263.scn"
+valid=false
 
 [deps]
 
 source_file="res://art/entities/PlayerBody.ase"
-dest_files=["res://.godot/imported/PlayerBody.ase-b1f93145ece26241167768f097ed9263.scn"]
 
 [params]
 
