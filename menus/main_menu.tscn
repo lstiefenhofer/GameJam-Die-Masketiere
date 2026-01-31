@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ditt1j1ooojdu"]
 
 [ext_resource type="Script" uid="uid://bdny0ndxm23wr" path="res://menus/main_menu.gd" id="1_8gy84"]
-[ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://assets/Stoneage.png" id="2_ij7vn"]
+[ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="2_ij7vn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12m17"]
 texture = ExtResource("2_ij7vn")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7hejkrsjs8r3"
-path="res://.godot/imported/Stoneage.png-b2ba21540520f83290dad7bf9a0fcc91.ctex"
+path="res://.godot/imported/Stoneage.png-56bb1cec5a294be200672bc8d8f6de23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Stoneage.png"
-dest_files=["res://.godot/imported/Stoneage.png-b2ba21540520f83290dad7bf9a0fcc91.ctex"]
+source_file="res://art/tilemaps/Stoneage.png"
+dest_files=["res://.godot/imported/Stoneage.png-56bb1cec5a294be200672bc8d8f6de23.ctex"]
 
 [params]
 

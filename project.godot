@@ -15,21 +15,21 @@ run/main_scene="uid://ditt1j1ooojdu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
-[dotnet]
-
-project/assembly_name="GGJ26-DieMasketiere"
-
-[gui]
-
-theme/custom_font="uid://d263q0lpohl03"
-
 [aseprite_importers]
 
 aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
 
+[dotnet]
+
+project/assembly_name="GGJ26-DieMasketiere"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://d263q0lpohl03"
 
 [input]
 
