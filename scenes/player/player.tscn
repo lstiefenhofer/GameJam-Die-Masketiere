@@ -3,12 +3,19 @@
 [ext_resource type="Script" uid="uid://bi3md3unr3sa8" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="2_gmlin"]
 [ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="3_lvxji"]
+[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_p47bc"]
+[ext_resource type="Script" uid="uid://dsyyefxytmf6d" path="res://scenes/animated_sprite_flash.gd" id="5_p47bc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
 radius = 3.0
 height = 16.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x7p2l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75vfm"]
+shader = ExtResource("3_p47bc")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 21.0
@@ -43,16 +50,19 @@ texture = SubResource("PlaceholderTexture2D_x7p2l")
 zoom = Vector2(4, 4)
 
 [node name="PlayerLegs" type="AnimatedSprite2D" parent="." unique_id=1129114372]
+material = SubResource("ShaderMaterial_75vfm")
 sprite_frames = ExtResource("2_gmlin")
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
 
 [node name="PlayerBody" type="AnimatedSprite2D" parent="." unique_id=1992899017]
+material = SubResource("ShaderMaterial_75vfm")
 sprite_frames = ExtResource("3_lvxji")
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
+script = ExtResource("5_p47bc")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=2133087784]
 collision_layer = 0
