@@ -9,6 +9,9 @@ class_name Level
 
 @export var level_id: Globals.LevelId
 @export var enemy_scenes: Array[PackedScene]
+## If true spawns wave 0 for the first collected mask, wave 1 for the second. 
+## If false spawns wave 0 for the mask with id 0 and wave 1 for the mask with id 1.
+@export var spawn_waves_by_mask_count: bool = false
 @export var enemy_waves: Array[Node2D]
 
 
@@ -50,8 +53,10 @@ func _on_mask_collected(mask_id: int) -> void:
 	Globals.recalculate_mask_effects.emit()
 
 	# Spawn a wave of enemies.
-	if mask_id < enemy_waves.size():
-		var wave = enemy_waves[mask_id]
+	var wave_id = Globals.mask_count[level_id] if spawn_waves_by_mask_count else mask_id
+	
+	if wave_id < enemy_waves.size():
+		var wave = enemy_waves[wave_id]
 		if wave:
 			for enemy in wave.get_children():
 				wave.remove_child(enemy)
