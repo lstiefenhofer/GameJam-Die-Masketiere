@@ -1,4 +1,8 @@
-extends StaticBody2D
+extends Interactable
 
-@export var level: int = 0
 @export var mask: int = 0
+
+func interact() -> void:
+	super()
+	queue_free()
+	Globals.mask_collected.emit(mask)

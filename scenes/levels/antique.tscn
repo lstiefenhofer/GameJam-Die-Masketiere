@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
 
 [node name="AntiqueLevel" unique_id=1222927860 instance=ExtResource("1_euvcv")]
+level_id = 1
 
 [node name="GroundLayer" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(873392170) index="0" unique_id=1425023533 node_paths=PackedStringArray("wall_tilemap")]
 z_index = -1

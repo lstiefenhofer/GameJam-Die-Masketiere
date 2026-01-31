@@ -9,7 +9,6 @@ radius = 5.0
 
 [node name="Mask" unique_id=75471443 instance=ExtResource("1_k58pe")]
 script = ExtResource("2_d44su")
-level = 0
 mask = 0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
