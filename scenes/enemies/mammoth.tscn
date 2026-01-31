@@ -78,11 +78,11 @@ sprite_frames = SubResource("SpriteFrames_s5g6u")
 animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
-position = Vector2(-1, 0)
+position = Vector2(1, 1)
 rotation = 1.5707964
 
 [node name="CollisionShape2D" parent="AttackArea" parent_id_path=PackedInt32Array(1371594350) index="0" unique_id=699821842]
-position = Vector2(-2, -1)
+position = Vector2(0, -1)
 
 [node name="NavigationAgent2D" parent="." index="5" unique_id=2132310080]
 max_speed = 100.0
