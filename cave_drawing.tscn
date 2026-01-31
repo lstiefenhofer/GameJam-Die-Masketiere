@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://kb1j8jnhop6f"]
+
+[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="1_vewwy"]
+[ext_resource type="Script" uid="uid://cjh34kh8m5wko" path="res://cave_drawing.gd" id="2_6gcau"]
+[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_mmjjc"]
+[ext_resource type="SpriteFrames" uid="uid://1reyxlji7v7h" path="res://art/sprites/EnemyCaveDrawingsSpriteFrames.tres" id="4_6gcau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gcau"]
+resource_local_to_scene = true
+shader = ExtResource("2_mmjjc")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
+
+[node name="CaveDrawing" unique_id=616659278 instance=ExtResource("1_vewwy")]
+script = ExtResource("2_6gcau")
+
+[node name="EnemyPlaceholder" parent="." index="0" unique_id=864650589]
+visible = false
+material = SubResource("ShaderMaterial_6gcau")
+
+[node name="EnemySpritesheet" parent="." index="1" unique_id=1062563798]
+sprite_frames = ExtResource("4_6gcau")
+animation = &"Throw"
+frame = 7
+frame_progress = 1.0
+offset = Vector2(6, -10)
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
+position = Vector2(0, -3)

@@ -16,8 +16,8 @@ shader_parameter/flash = 0.0
 [sub_resource type="SpriteFrames" id="SpriteFrames_ho7jy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o10tv"]
-radius = 4.0
-height = 10.0
+radius = 3.0
+height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o10tv"]
 radius = 100.0
