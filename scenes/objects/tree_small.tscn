@@ -15,3 +15,8 @@ shape = SubResource("RectangleShape2D_g82wa")
 position = Vector2(0, -8)
 texture = ExtResource("1_lgb0n")
 hframes = 2
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=636833281]
+vertices = PackedVector2Array(-6, 0, -6, -9, 6, -9, 6, 0)
+
+[node name="Collectibles" type="Node2D" parent="NavigationObstacle2D" unique_id=1671028058]
