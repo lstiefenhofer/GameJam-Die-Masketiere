@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_eyjd8"]
 [ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="2_6ugek"]
 [ext_resource type="Script" uid="uid://cj8cf26eeqvsd" path="res://scenes/interactables/pedestal.gd" id="2_fros2"]
+[ext_resource type="PackedScene" uid="uid://kjfgp0vorixy" path="res://scenes/text_dialog.tscn" id="4_fros2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyjd8"]
 size = Vector2(16, 12)
@@ -13,6 +14,7 @@ radius = 20.0
 [node name="Pedestal" unique_id=75471443 instance=ExtResource("1_eyjd8")]
 collision_layer = 8
 script = ExtResource("2_fros2")
+interaction_text = ""
 pedestal_item_frame = 0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
@@ -37,5 +39,10 @@ hframes = 28
 vframes = 15
 frame = 37
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." index="5" unique_id=28464310]
+[node name="InteractHint" parent="." index="4" unique_id=413300057]
+visible = true
+
+[node name="TextDialog" parent="." index="5" unique_id=587914214 instance=ExtResource("4_fros2")]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." index="6" unique_id=28464310]
 vertices = PackedVector2Array(-12, -17, -12, 2, 11, 2, 11, -17)

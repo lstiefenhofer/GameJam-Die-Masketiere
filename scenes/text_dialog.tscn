@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://kjfgp0vorixy"]
+
+[ext_resource type="Material" uid="uid://pylwj71dvexw" path="res://materials/canvas_unshaded.tres" id="1_5we8h"]
+[ext_resource type="Script" uid="uid://b4our7uc7jy58" path="res://scenes/text_dialog.gd" id="1_u1yea"]
+[ext_resource type="FontFile" uid="uid://d263q0lpohl03" path="res://assets/font/PressStart2P-Regular.ttf" id="2_u1yea"]
+
+[node name="TextDialog" type="PanelContainer" unique_id=587914214]
+visible = false
+z_index = 11
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+script = ExtResource("1_u1yea")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=873883481]
+material = ExtResource("1_5we8h")
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1199370284]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=579132437]
+material = ExtResource("1_5we8h")
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_u1yea")
+theme_override_font_sizes/font_size = 6
+visible_characters_behavior = 1

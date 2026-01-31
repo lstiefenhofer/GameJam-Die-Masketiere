@@ -21,6 +21,7 @@ shape = SubResource("CircleShape2D_ikuv3")
 
 [node name="InteractHint" type="PanelContainer" parent="." unique_id=413300057]
 visible = false
+z_index = 10
 offset_right = 54.0
 offset_bottom = 14.0
 

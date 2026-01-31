@@ -10,6 +10,5 @@ func _on_exit_doot_player_entered_door() -> void:
 	transition_to_level("res://scenes/levels/antique.tscn")
 
 func _on_recalculate_mask_effects() -> void:
-	print('RECALCULATE')
 	if Globals.mask_count[level_id] >= 2:
 		exit_door.state = Door.State.EXIT
