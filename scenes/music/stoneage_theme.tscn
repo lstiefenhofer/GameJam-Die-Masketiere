@@ -2,23 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://p3p2rt6dnxtr" path="res://assets/sounds/Theme of the Stoneage.wav" id="1_kwqhd"]
 
-[sub_resource type="GDScript" id="GDScript_kwqhd"]
-script/source = "extends AudioStreamPlayer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	AudioStreamPlayer
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [node name="Stoneage Theme" type="AudioStreamPlayer" unique_id=1100986812]
 stream = ExtResource("1_kwqhd")
 volume_db = -5.0
 autoplay = true
-bus = &"Background"
-script = SubResource("GDScript_kwqhd")
