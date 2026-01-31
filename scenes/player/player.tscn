@@ -238,5 +238,9 @@ position = Vector2(23, -10)
 shape = SubResource("CircleShape2D_gmlin")
 debug_color = Color(0.9804799, 0, 0.3832885, 0.41960785)
 
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=1311828866]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

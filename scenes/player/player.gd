@@ -9,11 +9,14 @@ class_name Player
 @export var body: AnimatedSprite2D
 
 @onready var attack_area: Area2D = $AttackArea
+@onready var invincibility_timer: Timer = $InvincibilityTimer
 
-var is_attacking = false;
+var is_attacking: bool = false
+var is_dead: bool = false
 
-
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if is_dead:
+		return
 	if velocity.length_squared() > 10.0 and legs.get_animation() != "Walk":
 		legs.play("Walk")
 	elif velocity.length_squared() < 1.0 and legs.get_animation() != "Idle":
@@ -26,6 +29,8 @@ func _process(delta: float) -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dead:
+		return
 	if event.is_action_pressed("Attack") and !is_attacking:
 		is_attacking = true
 		trigger_attack()
@@ -59,7 +64,17 @@ func _on_attack_area_body_entered(physics_body: Node2D) -> void:
 		physics_body.take_damage(damage)
 		
 		
-func take_damage(damage: float) -> void:
-	print("damage")
-	body.flash(0.1, 0.2)
-	# Legs use same material as body, so we only need to set the shader parameters to flash on one.
+func take_damage(incoming_damage: float) -> void:
+	if not invincibility_timer.time_left:
+		Globals.player_health -= incoming_damage
+		if Globals.player_health <= 0:
+			die()
+		# Legs use same material as body, so we only need to set the shader parameters to flash on one.
+		body.flash(0.1, 0.2)
+		invincibility_timer.start()
+		
+
+func die() -> void:
+	is_dead = true
+	# TODO Probably just show a dead sprite instead and disable all interactability.
+	queue_free()

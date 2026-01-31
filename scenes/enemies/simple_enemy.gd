@@ -42,15 +42,16 @@ func _on_detection_area_body_exited(_body: Node2D) -> void:
 
 
 func _on_pathfinding_timer_timeout() -> void:
-	navigation_agent.target_position = target.position
+	if is_instance_valid(target):
+		navigation_agent.target_position = target.position
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	
 
-func take_damage(damage: float) -> void:
-	health -= damage
+func take_damage(incoming_damage: float) -> void:
+	health -= incoming_damage
 	sprite_flash.flash(0.1, 0.2)
 
 
