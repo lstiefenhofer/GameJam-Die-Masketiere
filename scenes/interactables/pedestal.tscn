@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bgq18ctougppm"]
+
+[ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_eyjd8"]
+[ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="2_6ugek"]
+[ext_resource type="Script" uid="uid://cj8cf26eeqvsd" path="res://scenes/interactables/pedestal.gd" id="2_fros2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyjd8"]
+size = Vector2(16, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ugek"]
+radius = 27.0
+
+[node name="Pedestal" unique_id=75471443 instance=ExtResource("1_eyjd8")]
+script = ExtResource("2_fros2")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_eyjd8")
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(2015261441) index="0" unique_id=1887153074]
+position = Vector2(-2, -6)
+shape = SubResource("CircleShape2D_6ugek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1231359795]
+position = Vector2(0, -20)
+texture = ExtResource("2_6ugek")
+hframes = 28
+vframes = 6
+frame = 41

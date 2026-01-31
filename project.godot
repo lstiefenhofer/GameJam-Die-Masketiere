@@ -21,7 +21,8 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 
 [autoload]
 
-Globals="*uid://dd1tdv8mp23va"
+Globals="*uid://d3gq1lcn4ob03"
+
 [display]
 
 window/stretch/mode="canvas_items"
