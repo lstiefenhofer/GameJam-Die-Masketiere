@@ -5,6 +5,7 @@ class_name EnemyBase
 @export var attack_cooldown_min: float = 0.5
 @export var attack_cooldown_max: float = 1.5
 @export var forget_radius: float = 200.0
+@export var invert_flip: bool = false
 var _default_max_speed = 100
 var _default_speed = 50
 @export var health: float = 3:
@@ -19,6 +20,7 @@ var _default_speed = 50
 @onready var enemy_placeholder: Sprite2D = $EnemyPlaceholder
 @onready var enemy_spritesheet: AnimatedSpriteFlash = $EnemySpritesheet
 @onready var sprite_flash: SpriteFlash = $EnemyPlaceholder
+@onready var animated_sprite_flash: AnimatedSpriteFlash = $EnemySpritesheet
 @onready var attack_sprite: Sprite2D = $AttackSprite
 @onready var nearby_shape: CollisionShape2D = $DetectionArea/CollisionShape2D
 
@@ -78,6 +80,12 @@ func _process(delta: float) -> void:
 		_time_spend_on_current_navigation += delta
 		if _time_spend_on_current_navigation > _max_time_spending_in_navigation:
 			stop_movement_override()
+			
+	if enemy_spritesheet.sprite_frames and enemy_spritesheet.animation != "Attack":
+		if velocity.length_squared() > 1 and enemy_spritesheet.animation != "Walk":
+			enemy_spritesheet.play("Walk")
+		elif velocity.length_squared() == 0 and enemy_spritesheet.animation != "Idle":
+			enemy_spritesheet.play("Idle")
 
 
 func choose_attack():
@@ -106,9 +114,9 @@ func _physics_process(_delta: float) -> void:
 			velocity = velocity_to_next_target
 			
 		if enemy_placeholder:
-			enemy_placeholder.flip_h = velocity.x < 0
+			enemy_placeholder.flip_h = velocity.x > 0 if invert_flip else velocity.x < 0
 		if enemy_spritesheet:
-			enemy_spritesheet.flip_h = velocity.x < 0
+			enemy_spritesheet.flip_h = velocity.x > 0 if invert_flip else velocity.x < 0
 		
 		velocity += _current_pushback_intensity * _current_pushback_velocity
 		move_and_slide()
@@ -185,6 +193,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func take_damage(instigator : CharacterBody2D, incoming_damage: float, pushback_velocity : Vector2 = Vector2.ZERO) -> void:
 	health -= incoming_damage
 	sprite_flash.flash(0.1, 0.2)
+	animated_sprite_flash.flash(0.1, 0.2)
 	if pushback_velocity.length_squared() > 0:
 		_current_pushback_intensity = 1.0
 		_current_pushback_velocity = pushback_velocity
@@ -232,7 +241,7 @@ func default_attack(in_damage : int):
 		finish_attack()
 		return
 
-	while(timer.time_left > 0.1):
+	while(timer and timer.time_left > 0.1):
 		if(!get_target()):
 			finish_attack()
 			break
@@ -252,7 +261,7 @@ func default_attack(in_damage : int):
 	finish_attack()
 
 
-func charge_attack(in_damage : int, position_arc_degrees = 90.0, position_arc_distance = 80.0, charge_speed_multiplier = 3.0, charge_audio_player : AudioStreamPlayer2D = null):
+func charge_attack(in_damage : int, charge_audio_player : AudioStreamPlayer2D = null, position_arc_degrees = 90.0, position_arc_distance = 80.0, charge_speed_multiplier = 3.0):
 	if(!get_target()):
 		finish_attack()
 	
@@ -335,6 +344,7 @@ func _clear_timers():
 	for timer in active_timers:
 		if timer:
 			timer.stop()
+			timer.queue_free()
 			
 	active_timers.clear()
 
