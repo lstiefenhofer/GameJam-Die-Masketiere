@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_4brto"]
 [ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="3_jlvmp"]
 [ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="4_0bc2g"]
+[ext_resource type="AudioStream" uid="uid://ttwyoddogqwm" path="res://assets/sounds/Death noice.wav" id="5_hm278"]
 [ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_ubb5y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75vfm"]
@@ -29,5 +30,10 @@ animation = &"Death"
 autoplay = "Death"
 offset = Vector2(0, -16)
 script = ExtResource("5_ubb5y")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=409666041]
+stream = ExtResource("5_hm278")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
