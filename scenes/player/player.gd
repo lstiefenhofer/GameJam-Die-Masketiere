@@ -57,3 +57,9 @@ func _physics_process(_delta: float) -> void:
 func _on_attack_area_body_entered(physics_body: Node2D) -> void:
 	if "take_damage" in physics_body:
 		physics_body.take_damage(damage)
+		
+		
+func take_damage(damage: float) -> void:
+	print("damage")
+	body.flash(0.1, 0.2)
+	# Legs use same material as body, so we only need to set the shader parameters to flash on one.

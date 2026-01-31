@@ -6,13 +6,17 @@ extends CharacterBody2D
 		health = value
 		if health < 0:
 			die()
+@export var damage: float = 1
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var enemy_placeholder: Sprite2D = $EnemyPlaceholder
 @onready var sprite_flash: SpriteFlash = $EnemyPlaceholder
+@onready var attack_timer: Timer = $AttackTimer
+@onready var attack_sprite: Sprite2D = $AttackSprite
 
 var target: Player
 var is_player_detected: bool = false
+var is_player_in_attack_range: bool = false
 
 func _physics_process(_delta: float) -> void:
 	if is_player_detected:
@@ -25,7 +29,8 @@ func _physics_process(_delta: float) -> void:
 		else:
 			velocity = velocity_to_next_target
 		enemy_placeholder.flip_h = velocity.x < 0
-		move_and_slide()
+		if not is_player_in_attack_range:
+			move_and_slide()
 
 
 func _on_detection_area_body_entered(_body: Node2D) -> void:
@@ -51,3 +56,26 @@ func take_damage(damage: float) -> void:
 
 func die() -> void:
 	queue_free()
+
+
+func _process(_delta: float) -> void:
+	# Attack sprite to hint where the enemy is attacking.
+	if is_player_in_attack_range:
+		var progress = 1.0 - attack_timer.time_left / attack_timer.wait_time
+		attack_sprite.modulate.a = progress * 0.5
+
+
+func _on_attack_area_body_entered(_body: Node2D) -> void:
+	is_player_in_attack_range = true
+	attack_timer.start()
+
+
+func _on_attack_area_body_exited(_body: Node2D) -> void:
+	is_player_in_attack_range = false
+	attack_timer.stop()
+	attack_sprite.modulate.a = 0
+
+
+func _on_attack_timer_timeout() -> void:
+	if is_player_in_attack_range:
+		target.take_damage(damage)

@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/simple_enemy.gd" id="1_o10tv"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_01wx1"]
 [ext_resource type="Script" uid="uid://bi05h4nyrvhx4" path="res://scenes/sprite_flash.gd" id="4_hm7hm"]
+[ext_resource type="Texture2D" uid="uid://b6lvgfsxxk6us" path="res://art/sprites/circle.png" id="5_hm0mn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm7hm"]
+resource_local_to_scene = true
 shader = ExtResource("2_01wx1")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash = 0.0
@@ -16,6 +18,9 @@ height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o10tv"]
 radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm7hm"]
+radius = 20.0
 
 [node name="SimpleEnemy" type="CharacterBody2D" unique_id=616659278]
 collision_layer = 4
@@ -40,6 +45,15 @@ collision_mask = 2
 position = Vector2(1, -5)
 shape = SubResource("CircleShape2D_o10tv")
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=1371594350]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=699821842]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_hm7hm")
+debug_color = Color(0.9918476, 0, 0.2662707, 0.41960785)
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2132310080]
 path_postprocessing = 1
 avoidance_enabled = true
@@ -47,7 +61,18 @@ avoidance_enabled = true
 [node name="PathfindingTimer" type="Timer" parent="." unique_id=1834030345]
 autostart = true
 
+[node name="AttackTimer" type="Timer" parent="." unique_id=256909413]
+
+[node name="AttackSprite" type="Sprite2D" parent="." unique_id=34156837]
+modulate = Color(1, 0, 0, 0)
+position = Vector2(1, -6)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_hm0mn")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="PathfindingTimer" to="." method="_on_pathfinding_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
