@@ -86,6 +86,7 @@ func set_movement_speed_multiplier(in_multiplier : float):
 
 # Call in child scripts
 func move_to(new_position : Vector2):
+	can_move = true
 	_is_in_override_navigation = true
 	navigation_agent.target_position = new_position
 	if !navigation_agent.is_target_reachable():
