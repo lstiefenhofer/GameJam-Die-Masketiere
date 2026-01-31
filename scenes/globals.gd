@@ -39,14 +39,20 @@ func setup_hover(node: Node):
 		if child is Node:
 			setup_hover(child)
 
-func _on_hover(control: Control):
+func _on_hover(_control: Control):
 	if cursor_2x:
 		Input.set_custom_mouse_cursor(cursor_hover_2x)
 	else:
 		Input.set_custom_mouse_cursor(cursor_hover)
 
-func _on_exit(control: Control):
+func _on_exit(_control: Control):
 	if cursor_2x:
 		Input.set_custom_mouse_cursor(cursor_normal_2x)
 	else:
 		Input.set_custom_mouse_cursor(cursor_normal)
+
+func set_in_interactable_range(is_in_range: bool) -> void:
+	if is_in_range:
+		_on_hover(null)
+	else:
+		_on_exit(null)
