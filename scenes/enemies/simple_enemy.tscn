@@ -57,6 +57,7 @@ debug_color = Color(0.9918476, 0, 0.2662707, 0.41960785)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2132310080]
 path_postprocessing = 1
 avoidance_enabled = true
+radius = 20.0
 
 [node name="PathfindingTimer" type="Timer" parent="." unique_id=1834030345]
 autostart = true

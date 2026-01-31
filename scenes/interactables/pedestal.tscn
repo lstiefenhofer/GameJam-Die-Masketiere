@@ -11,7 +11,9 @@ size = Vector2(16, 12)
 radius = 27.0
 
 [node name="Pedestal" unique_id=75471443 instance=ExtResource("1_eyjd8")]
+collision_layer = 8
 script = ExtResource("2_fros2")
+pedestal_item_frame = 33
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
 position = Vector2(0, -6)
@@ -21,9 +23,19 @@ shape = SubResource("RectangleShape2D_eyjd8")
 position = Vector2(-2, -6)
 shape = SubResource("CircleShape2D_6ugek")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2" unique_id=1231359795]
+[node name="Pedestal" type="Sprite2D" parent="." index="2" unique_id=1231359795]
 position = Vector2(0, -20)
 texture = ExtResource("2_6ugek")
 hframes = 28
 vframes = 6
-frame = 41
+frame = 35
+
+[node name="PedestalItem" type="Sprite2D" parent="." index="3" unique_id=1799633996]
+position = Vector2(0, -17)
+texture = ExtResource("2_6ugek")
+hframes = 28
+vframes = 15
+frame = 33
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." index="5" unique_id=28464310]
+vertices = PackedVector2Array(-12, -17, -12, 2, 11, 2, 11, -17)

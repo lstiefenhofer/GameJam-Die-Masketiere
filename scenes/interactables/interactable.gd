@@ -5,10 +5,10 @@ class_name Interactable
 @onready var interact_hint: PanelContainer = $InteractHint
 
 var is_player_in_range: bool = false
-var is_interactable: bool = true
+@export var is_interactable: bool = true
 
 func _process(_delta: float) -> void:
-	if is_interactable and Input.is_action_just_pressed("Attack"):
+	if is_interactable and is_player_in_range and Input.is_action_just_pressed("Attack"):
 		interact()
 
 func _on_interaction_area_body_entered(_body: Node2D) -> void:

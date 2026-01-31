@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bsuaxwer8jhd7"]
+
+[ext_resource type="PackedScene" uid="uid://bgq18ctougppm" path="res://scenes/interactables/pedestal.tscn" id="1_eyfe4"]
+
+[node name="Pedestal" unique_id=75471443 instance=ExtResource("1_eyfe4")]
+
+[node name="Pedestal" parent="." index="2" unique_id=1231359795]
+frame = 34
+
+[node name="PedestalItem" parent="." index="3" unique_id=1799633996]
+visible = false

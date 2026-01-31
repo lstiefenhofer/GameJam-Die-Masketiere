@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cdfetrgmxtpxs"]
+
+[ext_resource type="Script" uid="uid://bvq6te5n36yfp" path="res://menus/interface.gd" id="1_27vvk"]
+[ext_resource type="FontFile" uid="uid://d263q0lpohl03" path="res://assets/font/PressStart2P-Regular.ttf" id="2_qd775"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd775"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jne5a"]
+bg_color = Color(0.4392157, 0, 0.07058824, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8u0x"]
+bg_color = Color(0.33474356, 0.3347436, 0.33474344, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fxk1b"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Interface" type="Control" unique_id=55518087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27vvk")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1367495757]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 601.0
+offset_right = 232.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("2_qd775")
+theme_override_styles/background = SubResource("StyleBoxFlat_qd775")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jne5a")
+max_value = 10.0
+step = 1.0
+value = 5.0
+
+[node name="AttackCountDown" type="ProgressBar" parent="." unique_id=165589873]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 500.0
+offset_right = 640.0
+offset_bottom = 510.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d8u0x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fxk1b")
+value = 75.0
+show_percentage = false

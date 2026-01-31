@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi3md3unr3sa8" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://b2t4nscqkub6l" path="res://scenes/player/player_dead.tscn" id="2_0owmy"]
+[ext_resource type="PackedScene" uid="uid://cdfetrgmxtpxs" path="res://menus/interface.tscn" id="2_75vfm"]
 [ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="2_gmlin"]
 [ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="3_lvxji"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_p47bc"]
@@ -39,6 +40,13 @@ body = NodePath("PlayerBody")
 attack_effect = NodePath("PlayerAttackEffect")
 death_scene = ExtResource("2_0owmy")
 audio_player = NodePath("RunningOnConcrete")
+
+[node name="Interface" parent="." unique_id=55518087 instance=ExtResource("2_75vfm")]
+offset_left = -144.0
+offset_top = -81.0
+offset_right = -144.0
+offset_bottom = -81.0
+scale = Vector2(0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1297313665]
 rotation = 1.5707964

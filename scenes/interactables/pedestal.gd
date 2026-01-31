@@ -1,9 +1,16 @@
+@tool
 extends Interactable
 
+@onready var pedestal_item: Sprite2D = $PedestalItem
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@export_range(33, 37) var pedestal_item_frame: int = 33:
+	set(value):
+		pedestal_item_frame = value
+		if pedestal_item:
+			pedestal_item.frame = value
+
 
 func interact() -> void:
 	super()
-	sprite_2d.frame = 35
+	pedestal_item.hide()
 	

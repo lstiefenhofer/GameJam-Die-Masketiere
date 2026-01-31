@@ -54,6 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func trigger_attack():
 	body.play("Attack")
+	Globals.emit_signal("attack_signal", 0.4)
 	await get_tree().create_timer(0.2).timeout
 	
 	# Activate attack area to trigger damage on all enemies that are inside.
