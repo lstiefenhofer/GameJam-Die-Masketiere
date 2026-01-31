@@ -16,7 +16,7 @@ static var player : Player
 @onready var attack_area: Area2D = $AttackArea
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 
-@export var audio_player: AudioStreamPlayer2D
+@export var footstep_sound_player : AudioStreamPlayer2D
 var is_attacking: bool = false
 var is_dead: bool = false
 # Damage multiplier is set by mask effects.
@@ -78,12 +78,6 @@ func _physics_process(_delta: float) -> void:
 	var input_vector = Input.get_vector("left", "right", "up", "down")
 	velocity = input_vector * speed
 	move_and_slide()
-	
-	if velocity.length() > 0:
-		if not audio_player.playing:
-			audio_player.play(0.0)
-	else:
-		audio_player.stop()
 
 
 func _on_attack_area_body_entered(physics_body: Node2D) -> void:
@@ -123,3 +117,12 @@ func _on_recalculate_mask_effects() -> void:
 	# The second stone age mask gives more damage.
 	damage_multiplier = 1.5 if Globals.mask_count[Globals.LevelId.StoneAge] >= 2 else 1.0
 	print(damage_multiplier)
+
+var skip_frame = true
+func _on_player_legs_frame_changed() -> void:
+	if legs.animation != "Walk":
+		return
+	skip_frame = !skip_frame
+	if !skip_frame:
+		footstep_sound_player.stop()
+		footstep_sound_player.play()
