@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var health: float = 3:
 	set(value):
 		health = value
-		if health < 0:
+		if health <= 0:
 			die()
 @export var damage: float = 1
 
