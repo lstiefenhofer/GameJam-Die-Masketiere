@@ -47,6 +47,7 @@ texture = ExtResource("1_chqdf")
 18:1/0 = 0
 20:1/0 = 0
 0:2/0 = 0
+0:2/0/terrain_set = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -8, 2, -8, 8, -2)
 1:2/0 = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -2, 8, -2)
@@ -108,6 +109,15 @@ texture = ExtResource("1_chqdf")
 12:5/0 = 0
 14:5/0 = 0
 20:7/0 = 0
+1:1/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+8:5/0 = 0
+9:5/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
