@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dseuc47t877cu" path="res://scenes/objects/tree_large.tscn" id="5_popwy"]
 [ext_resource type="PackedScene" uid="uid://u3h5fe2t8yc0" path="res://scenes/objects/tree_small.tscn" id="6_efktg"]
 [ext_resource type="PackedScene" uid="uid://bh8t7nk1n6mft" path="res://scenes/music/stoneage_theme.tscn" id="8_w02ck"]
+[ext_resource type="PackedScene" uid="uid://bgq18ctougppm" path="res://scenes/interactables/pedestal.tscn" id="9_47k1m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_efktg"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -441,5 +442,8 @@ position = Vector2(89, 22)
 
 [node name="TreeSmall" parent="Collectibles" parent_id_path=PackedInt32Array(752498702) index="5" unique_id=1134106608 instance=ExtResource("6_efktg")]
 position = Vector2(59, 16)
+
+[node name="Pedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="0" unique_id=75471443 instance=ExtResource("9_47k1m")]
+position = Vector2(185, 58)
 
 [node name="Stoneage Theme" parent="." index="5" unique_id=1100986812 instance=ExtResource("8_w02ck")]

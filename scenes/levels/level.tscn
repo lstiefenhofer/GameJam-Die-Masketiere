@@ -14,6 +14,7 @@ position = Vector2(-3, -1)
 position = Vector2(456, 259)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=373292418]
+y_sort_enabled = true
 
 [node name="Collectibles" type="Node2D" parent="." unique_id=752498702]
 y_sort_enabled = true
