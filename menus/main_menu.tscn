@@ -172,7 +172,7 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="LabelBackground2" type="Label" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=228902908]
+[node name="LabelBackground" type="Label" parent="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer" unique_id=228902908]
 layout_mode = 2
 text = "Background"
 
