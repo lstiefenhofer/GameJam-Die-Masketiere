@@ -8,9 +8,12 @@ class_name Player
 @export var legs: AnimatedSprite2D
 @export var body: AnimatedSprite2D
 
+
 @onready var attack_area: Area2D = $AttackArea
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 
+@export var audio_player: AudioStreamPlayer2D
+var is_attacking = false;
 var is_attacking: bool = false
 var is_dead: bool = false
 
@@ -57,6 +60,13 @@ func _physics_process(_delta: float) -> void:
 	var input_vector = Input.get_vector("left", "right", "up", "down")
 	velocity = input_vector * speed
 	move_and_slide()
+	
+	if velocity.length() > 0:
+		if not audio_player.playing:
+			audio_player.play(0.0)
+	else:
+		audio_player.stop()
+
 
 
 func _on_attack_area_body_entered(physics_body: Node2D) -> void:
@@ -64,6 +74,11 @@ func _on_attack_area_body_entered(physics_body: Node2D) -> void:
 		physics_body.take_damage(damage)
 		
 		
+func take_damage(damage: float) -> void:
+	print("damage")
+	body.flash(0.1, 0.2)
+	# Legs use same material as body, so we only need to set the shader parameters to flash on one.
+	
 func take_damage(incoming_damage: float) -> void:
 	if not invincibility_timer.time_left:
 		Globals.player_health -= incoming_damage

@@ -4,6 +4,9 @@
 resource_name = "Limiter"
 ceiling_db = -5.2
 
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_go2th"]
+resource_name = "Limiter"
+
 [resource]
 bus/0/volume_db = -0.0016212463
 bus/1/name = &"Background"
@@ -14,3 +17,11 @@ bus/1/volume_db = -0.0016212463
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectLimiter_umtkw")
 bus/1/effect/0/enabled = true
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLimiter_go2th")
+bus/2/effect/0/enabled = true

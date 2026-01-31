@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/simple_enemy.tscn" id="3_efktg"]
 [ext_resource type="PackedScene" uid="uid://7an8l0cxxr8c" path="res://scenes/collectibles/mask.tscn" id="3_jq4o1"]
 [ext_resource type="PackedScene" uid="uid://c41x2matg7jn5" path="res://scenes/collectibles/coin.tscn" id="3_mhkdx"]
-[ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/bitowl/levels/ground_tilemap.gd" id="3_w02ck"]
+[ext_resource type="Script" path="res://scenes/bitowl/levels/ground_tilemap.gd" id="3_w02ck"]
 [ext_resource type="PackedScene" uid="uid://dseuc47t877cu" path="res://scenes/objects/tree_large.tscn" id="5_popwy"]
 [ext_resource type="PackedScene" uid="uid://u3h5fe2t8yc0" path="res://scenes/objects/tree_small.tscn" id="6_efktg"]
 [ext_resource type="PackedScene" uid="uid://bh8t7nk1n6mft" path="res://scenes/music/stoneage_theme.tscn" id="8_w02ck"]
@@ -443,4 +443,3 @@ position = Vector2(89, 22)
 position = Vector2(59, 16)
 
 [node name="Stoneage Theme" parent="." index="5" unique_id=1100986812 instance=ExtResource("8_w02ck")]
-bus = &"Master"
