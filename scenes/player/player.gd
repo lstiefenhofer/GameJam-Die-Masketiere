@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 class_name Player
+static var player : Player
 
 @export var speed: float = 20
 @export var damage: float = 1
@@ -18,6 +19,10 @@ class_name Player
 @export var audio_player: AudioStreamPlayer2D
 var is_attacking: bool = false
 var is_dead: bool = false
+
+
+func _init() -> void:
+	player = self
 
 
 func _ready() -> void:

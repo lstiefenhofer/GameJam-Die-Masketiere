@@ -18,6 +18,9 @@ var target: Player
 var is_player_detected: bool = false
 var is_player_in_attack_range: bool = false
 
+func _ready() -> void:
+	target = Player.player
+
 func _physics_process(_delta: float) -> void:
 	if is_player_detected:
 		var next_target = navigation_agent.get_next_path_position()
