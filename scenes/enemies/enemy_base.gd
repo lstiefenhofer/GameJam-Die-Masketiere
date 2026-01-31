@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name EnemyBase
 
 @export var speed: float = 50
 var _default_max_speed = 100
@@ -30,7 +31,7 @@ signal target_reached()
 func _ready() -> void:
 	target = Player.player
 	
-	navigation_agent.navigation_finished.connect(Callable(self, "move_to_finished"))
+	navigation_agent.navigation_finished.connect(Callable(self, "_move_to_finished"))
 	_default_max_speed = navigation_agent.max_speed
 	_default_speed = speed
 
@@ -116,7 +117,7 @@ func move_to(new_position : Vector2) -> bool:
 	return true
 
 
-func move_to_finished():
+func _move_to_finished():
 	if(!_is_in_override_navigation):
 		return
 		

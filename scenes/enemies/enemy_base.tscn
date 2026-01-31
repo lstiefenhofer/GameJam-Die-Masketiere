@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/enemy_base.gd" id="1_o10tv"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_01wx1"]
 [ext_resource type="Script" uid="uid://bi05h4nyrvhx4" path="res://scenes/sprite_flash.gd" id="4_hm7hm"]
-[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_2kgy0"]
+[ext_resource type="Script" uid="uid://dsyyefxytmf6d" path="res://scenes/animated_sprite_flash.gd" id="5_2kgy0"]
 [ext_resource type="Texture2D" uid="uid://b6lvgfsxxk6us" path="res://art/sprites/circle.png" id="5_hm0mn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm7hm"]

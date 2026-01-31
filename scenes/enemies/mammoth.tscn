@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bq27byiwjyk7g"]
+
+[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="1_el54p"]
+[ext_resource type="Script" uid="uid://db7gbyngbq1tv" path="res://scenes/enemies/mammoth.gd" id="2_f5yay"]
+[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_ofi0u"]
+[ext_resource type="Texture2D" uid="uid://o6je6qkv6gf0" path="res://icon.png" id="4_f5yay"]
+[ext_resource type="Texture2D" uid="uid://bxeokun43mkpt" path="res://art/entities/mammooth-spritesheet.png" id="5_ofi0u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofi0u"]
+resource_local_to_scene = true
+shader = ExtResource("3_ofi0u")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofi0u"]
+atlas = ExtResource("5_ofi0u")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5g6u"]
+atlas = ExtResource("5_ofi0u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fd0u"]
+atlas = ExtResource("5_ofi0u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb03d"]
+atlas = ExtResource("5_ofi0u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3ykl"]
+atlas = ExtResource("5_ofi0u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5g6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofi0u")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5g6u")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fd0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb03d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3ykl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Mammoth" unique_id=616659278 instance=ExtResource("1_el54p")]
+script = ExtResource("2_f5yay")
+
+[node name="EnemyPlaceholder" parent="." index="0" unique_id=864650589]
+visible = false
+material = SubResource("ShaderMaterial_ofi0u")
+texture = ExtResource("4_f5yay")
+
+[node name="EnemySpritesheet" parent="." index="1" unique_id=1062563798]
+sprite_frames = SubResource("SpriteFrames_s5g6u")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" parent="AttackArea" parent_id_path=PackedInt32Array(1371594350) index="0" unique_id=699821842]
+position = Vector2(-2, -1)
+
+[node name="NavigationAgent2D" parent="." index="5" unique_id=2132310080]
+max_speed = 100.0

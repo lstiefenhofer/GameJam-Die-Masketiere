@@ -1,0 +1,37 @@
+[gd_resource type="Theme" format=3 uid="uid://b0qqmind4lh6k"]
+
+[ext_resource type="FontFile" uid="uid://d263q0lpohl03" path="res://assets/font/PressStart2P-Regular.ttf" id="1_q1yho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1yho"]
+bg_color = Color(0.4525857, 0.4525857, 0.45258558, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qucla"]
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.4509804, 0.4509804, 0.4509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3e24q"]
+bg_color = Color(0.8901961, 0.7019608, 0.4117647, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.8901961, 0.7019608, 0.4117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnswh"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406258, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+
+[resource]
+default_font = ExtResource("1_q1yho")
+Button/styles/disabled = SubResource("StyleBoxFlat_q1yho")
+Button/styles/focus = SubResource("StyleBoxFlat_qucla")
+Button/styles/hover = SubResource("StyleBoxFlat_3e24q")
+Button/styles/normal = SubResource("StyleBoxFlat_jnswh")
