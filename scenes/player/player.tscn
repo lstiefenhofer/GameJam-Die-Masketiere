@@ -183,7 +183,6 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2059150865 node_paths=PackedStringArray("legs", "body")]
-[node name="Player" type="CharacterBody2D" unique_id=2059150865]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_8afob")
