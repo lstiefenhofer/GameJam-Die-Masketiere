@@ -19,6 +19,8 @@ static var player : Player
 @export var audio_player: AudioStreamPlayer2D
 var is_attacking: bool = false
 var is_dead: bool = false
+# Damage multiplier is set by mask effects.
+var damage_multiplier: float = 1
 
 
 func _init() -> void:
@@ -27,6 +29,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	attack_effect.visible = false
+	Globals.recalculate_mask_effects.connect(_on_recalculate_mask_effects)
 
 
 func _process(_delta: float) -> void:
@@ -85,7 +88,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_attack_area_body_entered(physics_body: Node2D) -> void:
 	if "take_damage" in physics_body:
-		physics_body.take_damage(damage)
+		physics_body.take_damage(damage * damage_multiplier)
 		attack_effect.visible = true
 		
 
@@ -113,3 +116,10 @@ func die() -> void:
 			
 	death.position = position
 	queue_free()
+
+
+# Apply the current mask effects to the player.
+func _on_recalculate_mask_effects() -> void:
+	# The second stone age mask gives more damage.
+	damage_multiplier = 1.5 if Globals.mask_count[Globals.LevelId.StoneAge] >= 2 else 1.0
+	print(damage_multiplier)

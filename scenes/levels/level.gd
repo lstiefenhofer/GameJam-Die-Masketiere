@@ -28,13 +28,19 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	if not spawn_point:
 		push_error("There are no enemy spawn points defined in this level!")
 		return
+	
+	# TODO Only spawn if there is no enemy near this spawn point.
+	# TODO Only spawn if the player is not at this spawn point.
+		
 	enemy.position = spawn_point.position
 	enemies.add_child(enemy)
 
 
 func _on_mask_collected(mask_id: int) -> void:
+	print("Mask "+ str(mask_id) + " collected.")
 	Globals.mask_count[level_id] += 1
 	# TODO trigger mask effect
+	Globals.recalculate_mask_effects.emit()
 	# TODO spawn a wave of enemies
 
 	# Start regularly spawning enemies.
