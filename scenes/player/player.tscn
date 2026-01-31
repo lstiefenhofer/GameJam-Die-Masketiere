@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://c35xqt2nqbecb"]
 
 [ext_resource type="Script" uid="uid://bi3md3unr3sa8" path="res://scenes/player/player.gd" id="1_8afob"]
-[ext_resource type="PackedScene" uid="uid://d3kibws0spiyi" path="res://art/entities/PlayerLegs.ase" id="2_gmlin"]
-[ext_resource type="PackedScene" uid="uid://chl2jubt8smh3" path="res://art/entities/PlayerBody.ase" id="3_lvxji"]
+[ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="2_gmlin"]
+[ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="3_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
 radius = 3.0
@@ -42,12 +42,14 @@ texture = SubResource("PlaceholderTexture2D_x7p2l")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1551943026]
 zoom = Vector2(4, 4)
 
-[node name="PlayerLegs" parent="." unique_id=1129114372 instance=ExtResource("2_gmlin")]
+[node name="PlayerLegs" type="AnimatedSprite2D" parent="." unique_id=1129114372]
+sprite_frames = ExtResource("2_gmlin")
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
 
-[node name="PlayerBody" parent="." unique_id=1992899017 instance=ExtResource("3_lvxji")]
+[node name="PlayerBody" type="AnimatedSprite2D" parent="." unique_id=1992899017]
+sprite_frames = ExtResource("3_lvxji")
 animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -16)
