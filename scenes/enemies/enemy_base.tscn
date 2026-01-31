@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dtu7noaxo562u"]
 
 [ext_resource type="Texture2D" uid="uid://ddtvai8bt46wb" path="res://art/sprites/enemy_placeholder.png" id="1_gsiem"]
-[ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/simple_enemy.gd" id="1_o10tv"]
+[ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/enemy_base.gd" id="1_o10tv"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_01wx1"]
 [ext_resource type="Script" uid="uid://bi05h4nyrvhx4" path="res://scenes/sprite_flash.gd" id="4_hm7hm"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_2kgy0"]
 [ext_resource type="Texture2D" uid="uid://b6lvgfsxxk6us" path="res://art/sprites/circle.png" id="5_hm0mn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm7hm"]
@@ -11,6 +12,8 @@ resource_local_to_scene = true
 shader = ExtResource("2_01wx1")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash = 0.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho7jy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o10tv"]
 radius = 4.0
@@ -32,6 +35,10 @@ material = SubResource("ShaderMaterial_hm7hm")
 position = Vector2(0, -8)
 texture = ExtResource("1_gsiem")
 script = ExtResource("4_hm7hm")
+
+[node name="EnemySpritesheet" type="AnimatedSprite2D" parent="." unique_id=1062563798]
+sprite_frames = SubResource("SpriteFrames_ho7jy")
+script = ExtResource("5_2kgy0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783457394]
 position = Vector2(1, -5)
@@ -57,7 +64,6 @@ debug_color = Color(0.9918476, 0, 0.2662707, 0.41960785)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2132310080]
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 20.0
 
 [node name="PathfindingTimer" type="Timer" parent="." unique_id=1834030345]
 autostart = true

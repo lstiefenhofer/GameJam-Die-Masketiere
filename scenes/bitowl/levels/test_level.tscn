@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bviuebiesy802" path="res://scenes/levels/level.tscn" id="1_d588e"]
 [ext_resource type="Texture2D" uid="uid://b281q8uvhqo0r" path="res://art/tilemaps/tilemap_packed.png" id="3_53hy3"]
-[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/simple_enemy.tscn" id="3_efktg"]
+[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="3_efktg"]
 [ext_resource type="PackedScene" uid="uid://7an8l0cxxr8c" path="res://scenes/collectibles/mask.tscn" id="3_jq4o1"]
 [ext_resource type="PackedScene" uid="uid://c41x2matg7jn5" path="res://scenes/collectibles/coin.tscn" id="3_mhkdx"]
-[ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_w02ck"]
+[ext_resource type="Script" path="res://scenes/ground_tilemap.gd" id="3_w02ck"]
 [ext_resource type="PackedScene" uid="uid://dseuc47t877cu" path="res://scenes/objects/tree_large.tscn" id="5_popwy"]
 [ext_resource type="PackedScene" uid="uid://u3h5fe2t8yc0" path="res://scenes/objects/tree_small.tscn" id="6_efktg"]
 [ext_resource type="PackedScene" uid="uid://bh8t7nk1n6mft" path="res://scenes/music/stoneage_theme.tscn" id="8_w02ck"]
@@ -410,7 +410,6 @@ tile_set = SubResource("TileSet_jq4o1")
 
 [node name="Player" parent="." index="1" unique_id=2059150865]
 position = Vector2(134, 91)
-death_scene = null
 
 [node name="SimpleEnemy" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=616659278 instance=ExtResource("3_efktg")]
 position = Vector2(14, 87)

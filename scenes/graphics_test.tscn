@@ -1,531 +1,78 @@
-[gd_scene format=4 uid="uid://xdm7v4boauxg"]
+[gd_scene format=3 uid="uid://xdm7v4boauxg"]
 
-[ext_resource type="PackedScene" uid="uid://bviuebiesy802" path="res://scenes/levels/level.tscn" id="1_ar7pk"]
-[ext_resource type="Texture2D" uid="uid://b281q8uvhqo0r" path="res://art/tilemaps/tilemap_packed.png" id="2_f7tdx"]
-[ext_resource type="Texture2D" uid="uid://xqqfaojfbmax" path="res://art/tilemaps/Solaria Demo Tiles.png" id="3_n3djy"]
+[ext_resource type="Script" uid="uid://daxfmwslyrg8n" path="res://scenes/enemies/enemy_base.gd" id="1_n3djy"]
+[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_7716d"]
+[ext_resource type="Texture2D" uid="uid://ddtvai8bt46wb" path="res://art/sprites/enemy_placeholder.png" id="3_u8bae"]
+[ext_resource type="Script" uid="uid://bi05h4nyrvhx4" path="res://scenes/sprite_flash.gd" id="4_aovxo"]
+[ext_resource type="Texture2D" uid="uid://b6lvgfsxxk6us" path="res://art/sprites/circle.png" id="5_7bqb8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mhkdx"]
-texture = ExtResource("2_f7tdx")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm7hm"]
+resource_local_to_scene = true
+shader = ExtResource("2_7716d")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vshjk"]
-texture = ExtResource("3_n3djy")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-16:0/0 = 0
-17:0/0 = 0
-18:0/0 = 0
-19:0/0 = 0
-20:0/0 = 0
-21:0/0 = 0
-22:0/0 = 0
-23:0/0 = 0
-24:0/0 = 0
-25:0/0 = 0
-26:0/0 = 0
-0:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-15:1/0 = 0
-16:1/0 = 0
-17:1/0 = 0
-18:1/0 = 0
-19:1/0 = 0
-21:1/0 = 0
-22:1/0 = 0
-23:1/0 = 0
-24:1/0 = 0
-25:1/0 = 0
-26:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-16:2/0 = 0
-17:2/0 = 0
-18:2/0 = 0
-19:2/0 = 0
-20:2/0 = 0
-21:2/0 = 0
-22:2/0 = 0
-23:2/0 = 0
-24:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-16:3/0 = 0
-17:3/0 = 0
-18:3/0 = 0
-19:3/0 = 0
-20:3/0 = 0
-21:3/0 = 0
-22:3/0 = 0
-23:3/0 = 0
-24:3/0 = 0
-25:3/0 = 0
-27:3/0 = 0
-0:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-16:4/0 = 0
-17:4/0 = 0
-18:4/0 = 0
-19:4/0 = 0
-20:4/0 = 0
-22:4/0 = 0
-23:4/0 = 0
-24:4/0 = 0
-27:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-16:5/0 = 0
-17:5/0 = 0
-18:5/0 = 0
-19:5/0 = 0
-20:5/0 = 0
-21:5/0 = 0
-22:5/0 = 0
-23:5/0 = 0
-24:5/0 = 0
-25:5/0 = 0
-26:5/0 = 0
-27:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-16:6/0 = 0
-17:6/0 = 0
-18:6/0 = 0
-19:6/0 = 0
-20:6/0 = 0
-21:6/0 = 0
-22:6/0 = 0
-23:6/0 = 0
-24:6/0 = 0
-25:6/0 = 0
-26:6/0 = 0
-27:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-18:7/0 = 0
-19:7/0 = 0
-21:7/0 = 0
-22:7/0 = 0
-23:7/0 = 0
-24:7/0 = 0
-25:7/0 = 0
-26:7/0 = 0
-27:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
-18:8/0 = 0
-19:8/0 = 0
-20:8/0 = 0
-21:8/0 = 0
-22:8/0 = 0
-23:8/0 = 0
-24:8/0 = 0
-25:8/0 = 0
-26:8/0 = 0
-27:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-19:9/0 = 0
-21:9/0 = 0
-23:9/0 = 0
-24:9/0 = 0
-25:9/0 = 0
-26:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-16:10/0 = 0
-17:10/0 = 0
-18:10/0 = 0
-19:10/0 = 0
-20:10/0 = 0
-21:10/0 = 0
-22:10/0 = 0
-23:10/0 = 0
-24:10/0 = 0
-25:10/0 = 0
-26:10/0 = 0
-27:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-16:11/0 = 0
-17:11/0 = 0
-18:11/0 = 0
-19:11/0 = 0
-20:11/0 = 0
-22:11/0 = 0
-23:11/0 = 0
-24:11/0 = 0
-25:11/0 = 0
-26:11/0 = 0
-27:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-15:12/0 = 0
-16:12/0 = 0
-17:12/0 = 0
-18:12/0 = 0
-19:12/0 = 0
-22:12/0 = 0
-23:12/0 = 0
-24:12/0 = 0
-25:12/0 = 0
-27:12/0 = 0
-0:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-15:13/0 = 0
-16:13/0 = 0
-17:13/0 = 0
-0:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-10:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o10tv"]
+radius = 4.0
+height = 10.0
 
-[sub_resource type="TileSet" id="TileSet_jq4o1"]
-sources/0 = SubResource("TileSetAtlasSource_mhkdx")
-sources/1 = SubResource("TileSetAtlasSource_vshjk")
+[sub_resource type="CircleShape2D" id="CircleShape2D_o10tv"]
+radius = 100.0
 
-[node name="TestLevel" unique_id=1222927860 instance=ExtResource("1_ar7pk")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hm7hm"]
+radius = 20.0
 
-[node name="Tilemaps" parent="." index="0" unique_id=873392170]
-position = Vector2(0, 0)
+[node name="SimpleEnemy" type="CharacterBody2D" unique_id=616659278]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_n3djy")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="Tilemaps" index="0" unique_id=1493472749]
-tile_map_data = PackedByteArray("AAAAAAAAAQAWAAQAAAABAAAAAQAXAAQAAAABAAEAAQAXAAUAAAAAAAEAAQAWAAUAAAACAAAAAQAXAAQAAAACAAEAAQAXAAUAAAADAAEAAQAXAAUAAAAEAAEAAQAXAAUAAAAFAAEAAQAXAAUAAAAGAAEAAQAXAAUAAAAHAAEAAQAXAAUAAAAIAAEAAQAXAAUAAAAJAAEAAQAXAAUAAAADAAAAAQAXAAQAAAAEAAAAAQAXAAQAAAAFAAAAAQAXAAQAAAAGAAAAAQAXAAQAAAAHAAAAAQAXAAQAAAAIAAAAAQAXAAQAAAAJAAAAAQAXAAQAAAAAAAIAAQAKAAwAAAABAAIAAQALAAwAAAABAAMAAQALAA0AAAABAAQAAQALAA0AAAABAAUAAQALAA0AAAACAAIAAQALAAwAAAACAAMAAQALAA0AAAACAAQAAQALAA0AAAACAAUAAQALAA0AAAADAAIAAQALAAwAAAADAAMAAQALAA0AAAADAAQAAQALAA0AAAADAAUAAQALAA0AAAAEAAIAAQALAAwAAAAEAAMAAQALAA0AAAAEAAQAAQALAA0AAAAEAAUAAQALAA0AAAAFAAIAAQALAAwAAAAFAAMAAQALAA0AAAAFAAQAAQALAA0AAAAFAAUAAQALAA0AAAAGAAIAAQALAAwAAAAGAAMAAQALAA0AAAAGAAQAAQALAA0AAAAGAAUAAQALAA0AAAAHAAIAAQALAAwAAAAHAAMAAQALAA0AAAAHAAQAAQALAA0AAAAHAAUAAQALAA0AAAAIAAIAAQALAAwAAAAIAAMAAQALAA0AAAAIAAQAAQALAA0AAAAIAAUAAQALAA0AAAAJAAIAAQALAAwAAAAJAAMAAQALAA0AAAAJAAQAAQALAA0AAAAJAAUAAQALAA0AAAAAAAMAAQAKAA0AAAAAAAQAAQAKAA0AAAAAAAUAAQAKAA0AAAAKAAIAAQALAAwAAAAKAAMAAQALAA0AAAALAAIAAQAMAAwAAAALAAMAAQAMAA0AAAAKAAQAAQALAA0AAAALAAQAAQAMAA0AAAAKAAAAAQAXAAQAAAAKAAEAAQAXAAUAAAALAAAAAQAYAAQAAAALAAEAAQAYAAUAAAAAAP//AQAXAAIAAAABAP//AQAXAAIAAAACAP//AQAXAAIAAAADAP//AQAXAAIAAAAEAP//AQAXAAIAAAAFAP//AQAXAAIAAAAGAP//AQAXAAIAAAAHAP//AQAXAAIAAAAIAP//AQAXAAIAAAAJAP//AQAXAAIAAAAKAP//AQAXAAIAAAALAP//AQAXAAIAAAAMAP//AQAaAAAAAAAMAAAAAQAWAAEAAAAMAAEAAQAWAAEAAAAMAAIAAQAWAAEAAAAMAAMAAQAWAAEAAAAMAAQAAQAWAAEAAAD//wAAAQAYAAEAAAD//wEAAQAYAAEAAAD//wIAAQAYAAEAAAD//wMAAQAYAAEAAAD//wQAAQAYAAEAAAD/////AQAZAAAAAAABAAYAAQALAA0AAAABAAcAAQALAA0AAAABAAgAAQALAA0AAAACAAcAAQALAA0AAAACAAgAAQALAA0AAAADAAYAAQALAA0AAAADAAcAAQALAA0AAAADAAgAAQALAA0AAAAEAAYAAQALAA0AAAAEAAcAAQALAA0AAAAEAAgAAQALAA0AAAAFAAYAAQALAA0AAAAFAAcAAQALAA0AAAAFAAgAAQALAA0AAAAGAAYAAQALAA0AAAAGAAcAAQALAA0AAAAGAAgAAQALAA0AAAAHAAYAAQALAA0AAAAHAAcAAQALAA0AAAAHAAgAAQALAA0AAAAIAAYAAQALAA0AAAAIAAcAAQALAA0AAAAIAAgAAQALAA0AAAAJAAYAAQALAA0AAAAJAAcAAQALAA0AAAAJAAgAAQALAA0AAAAKAAUAAQALAA0AAAAKAAYAAQALAA0AAAAKAAcAAQALAA0AAAAKAAgAAQALAA0AAAAAAAYAAQAKAA0AAAAAAAcAAQAKAA0AAAAAAAgAAQAKAA0AAAALAAUAAQAMAA0AAAALAAYAAQAMAA0AAAALAAcAAQAMAA0AAAALAAgAAQAMAA0AAAABAAkAAQALAA4AAAACAAkAAQALAA4AAAADAAkAAQALAA4AAAAEAAkAAQALAA4AAAAFAAkAAQALAA4AAAAGAAkAAQALAA4AAAAHAAkAAQALAA4AAAAIAAkAAQALAA4AAAAJAAkAAQALAA4AAAAKAAkAAQALAA4AAAALAAkAAQAMAA4AAAAAAAkAAQAKAA4AAAD//wUAAQAYAAEAAAD//wYAAQAYAAEAAAD//wcAAQAYAAEAAAD//wgAAQAYAAEAAAAMAAUAAQAWAAEAAAAMAAYAAQAWAAEAAAAMAAcAAQAWAAEAAAAMAAgAAQAWAAEAAAACAAYAAQALAA0AAAA=")
-tile_set = SubResource("TileSet_jq4o1")
+[node name="EnemyPlaceholder" type="Sprite2D" parent="." unique_id=864650589]
+material = SubResource("ShaderMaterial_hm7hm")
+position = Vector2(0, -8)
+texture = ExtResource("3_u8bae")
+script = ExtResource("4_aovxo")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Tilemaps" index="1" unique_id=441182920]
-tile_map_data = PackedByteArray("AAAIAAMAAQAWAAsAAAAIAAQAAQAWAAwAAAAIAAUAAQAXAAwAAAAJAAUAAQAFAAsAAAADAAQAAQAXAAsAAAADAAUAAQAXAAwAAAA=")
-tile_set = SubResource("TileSet_jq4o1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783457394]
+position = Vector2(1, -5)
+shape = SubResource("CapsuleShape2D_o10tv")
 
-[node name="Player" parent="." index="1" unique_id=2059150865]
-position = Vector2(81, 71)
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1472084244]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1297026147]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_o10tv")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1371594350]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=699821842]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_hm7hm")
+debug_color = Color(0.9918476, 0, 0.2662707, 0.41960785)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2132310080]
+path_postprocessing = 1
+avoidance_enabled = true
+
+[node name="PathfindingTimer" type="Timer" parent="." unique_id=1834030345]
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=256909413]
+
+[node name="AttackSprite" type="Sprite2D" parent="." unique_id=34156837]
+modulate = Color(1, 0, 0, 0)
+position = Vector2(1, -6)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("5_7bqb8")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="PathfindingTimer" to="." method="_on_pathfinding_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
