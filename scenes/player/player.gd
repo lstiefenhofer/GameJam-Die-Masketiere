@@ -22,6 +22,8 @@ static var player : Player
 @onready var attack_area: Area2D = $AttackArea
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 @onready var point_light: PointLight2D = $PointLight2D
+@export var attack_swing_sounds: AudioStreamPlayer2D
+
 
 var is_attacking: bool = false
 var is_dead: bool = false
@@ -65,7 +67,9 @@ func trigger_attack():
 	body.stop()
 	body.play("Attack")
 	Globals.emit_signal("attack_signal", 0.4)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.1).timeout
+	attack_swing_sounds.play()
+	await get_tree().create_timer(0.1).timeout
 	
 	# Activate attack area to trigger damage on all enemies that are inside.
 	# @see _on_attack_area_body_entered
