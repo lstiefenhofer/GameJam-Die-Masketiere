@@ -1,6 +1,6 @@
 extends Node
 
-const INITIAL_PLAYER_HEALTH: float = 1
+const INITIAL_PLAYER_HEALTH: float = 10.0
 var player_health: float = INITIAL_PLAYER_HEALTH
 
 @warning_ignore("unused_signal") 
