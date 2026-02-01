@@ -1,14 +1,52 @@
 [gd_scene format=3 uid="uid://rg2mybxmh3wx"]
 
+[ext_resource type="Script" uid="uid://dcmnmmv1w1vvt" path="res://scenes/objects/lamp.gd" id="1_1ngp2"]
 [ext_resource type="Texture2D" uid="uid://b73t684g8ft1k" path="res://art/sprites/2d_lights_and_shadows_neutral_point_light.webp" id="1_06rti"]
-[ext_resource type="Texture2D" uid="uid://uaa0j1wdkq7m" path="res://art/sprites/lamp.png" id="2_1ngp2"]
+[ext_resource type="Texture2D" uid="uid://chuwe8ynljlkb" path="res://art/sprites/fire-Sheet.png" id="2_06rti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ngp2"]
+atlas = ExtResource("2_06rti")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndgxo"]
+atlas = ExtResource("2_06rti")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flud0"]
+atlas = ExtResource("2_06rti")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8imt"]
+atlas = ExtResource("2_06rti")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6n3ue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ngp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndgxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flud0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8imt")
+}],
+"loop": true,
+"name": &"flicker",
+"speed": 5.0
+}]
 
 [node name="lamp" type="Node2D" unique_id=1077203162]
+script = ExtResource("1_1ngp2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=836757091]
 color = Color(1, 0.827451, 0.54509807, 1)
 texture = ExtResource("1_06rti")
-texture_scale = 0.15
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1827380965]
-texture = ExtResource("2_1ngp2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=198049928]
+sprite_frames = SubResource("SpriteFrames_6n3ue")
+animation = &"flicker"
