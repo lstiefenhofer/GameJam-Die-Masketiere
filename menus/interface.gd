@@ -6,6 +6,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	show() # Make sure GUI is visible at game time
 	Globals.attack_signal.connect(_on_attack_signal)
 	Globals.setup_hover(get_tree().get_root())
 	attack_count_down.hide()
