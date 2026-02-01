@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bh8t7nk1n6mft" path="res://scenes/music/stoneage_theme.tscn" id="4_251vq"]
 [ext_resource type="PackedScene" uid="uid://jqhvra7mtk0a" path="res://scenes/objects/door.tscn" id="4_j5bmt"]
 [ext_resource type="Texture2D" uid="uid://ci36up65g667k" path="res://art/sprites/CaveDrawingsSprites.png" id="4_stvde"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/mammoth.tscn" id="6_mj601"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/caveman_drawing_enemy.tscn" id="7_8xos2"]
 [ext_resource type="PackedScene" uid="uid://bvf7ie61ct7ei" path="res://scenes/interactables/mask_on_pedestal.tscn" id="7_j5bmt"]
 [ext_resource type="PackedScene" uid="uid://dgq38ubwibi54" path="res://scenes/interactables/mask.tscn" id="7_qe77c"]
@@ -17,16 +18,17 @@
 [ext_resource type="Resource" uid="uid://c1dkrflvupvta" path="res://scenes/collectibles/MaskInfos/stoneage_mask_2.tres" id="11_mj601"]
 [ext_resource type="Texture2D" uid="uid://c7nddwiqf1u31" path="res://art/masks/StoneAgeMaskPart2.png" id="12_6ey7e"]
 
-[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4") instance=ExtResource("1_cwsmi")]
+[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4", "additional_enemy_waves") instance=ExtResource("1_cwsmi")]
 script = ExtResource("2_6d0s8")
-level_id = 0
-enemy_scenes = Array[PackedScene]([])
 closed_door_one = NodePath("Objects/ClosedDoorForMaskOne")
 closed_door_two = NodePath("Objects/ClosedDoorForMaskOne2")
 fake_pedestral = NodePath("Objects/fake_Pedestral")
 fake_pedestral_2 = NodePath("Objects/fake_Pedestral2")
 fake_pedestral_3 = NodePath("Objects/fake_Pedestral3")
 fake_pedestral_4 = NodePath("Objects/fake_Pedestral4")
+level_id = 0
+enemy_scenes = Array[PackedScene]([])
+additional_enemy_waves = [NodePath("Enemies/ButtonOneMonsterWave"), NodePath("Enemies/ButtonTwoMonsterWave")]
 
 [node name="Stoneage Theme" parent="." index="0" unique_id=1100986812 instance=ExtResource("4_251vq")]
 
@@ -176,10 +178,32 @@ position = Vector2(952, 334)
 position = Vector2(32, 50)
 
 [node name="ButtonTwoMonsterWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=1849270351]
-visible = false
+
+[node name="Mammoth" parent="Enemies/ButtonTwoMonsterWave" index="0" unique_id=616659278 instance=ExtResource("6_mj601")]
+position = Vector2(-385, -874)
+
+[node name="CavemanDrawing" parent="Enemies/ButtonTwoMonsterWave" index="1" unique_id=1608742933 instance=ExtResource("7_8xos2")]
+position = Vector2(-474, -1038)
+
+[node name="CavemanDrawing2" parent="Enemies/ButtonTwoMonsterWave" index="2" unique_id=1897275143 instance=ExtResource("7_8xos2")]
+position = Vector2(-420, -1075)
+
+[node name="CavemanDrawing3" parent="Enemies/ButtonTwoMonsterWave" index="3" unique_id=1042967210 instance=ExtResource("7_8xos2")]
+position = Vector2(-355, -1103)
+
+[node name="CavemanDrawing4" parent="Enemies/ButtonTwoMonsterWave" index="4" unique_id=856355312 instance=ExtResource("7_8xos2")]
+position = Vector2(-372, -1142)
+
+[node name="CavemanDrawing5" parent="Enemies/ButtonTwoMonsterWave" index="5" unique_id=1584862811 instance=ExtResource("7_8xos2")]
+position = Vector2(-305, -1037)
+
+[node name="CavemanDrawing6" parent="Enemies/ButtonTwoMonsterWave" index="6" unique_id=1438644360 instance=ExtResource("7_8xos2")]
+position = Vector2(-290, -1089)
+
+[node name="CavemanDrawing7" parent="Enemies/ButtonTwoMonsterWave" index="7" unique_id=2052805390 instance=ExtResource("7_8xos2")]
+position = Vector2(-501, -1045)
 
 [node name="ButtonOneMonsterWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="1" unique_id=1700798393]
-visible = false
 
 [node name="CavemanDrawing" parent="Enemies/ButtonOneMonsterWave" index="0" unique_id=1045461263 instance=ExtResource("7_8xos2")]
 position = Vector2(861, 304)
