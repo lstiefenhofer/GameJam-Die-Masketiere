@@ -24,12 +24,13 @@ loop_mode = 1
 loop_end = 144207
 stereo = true
 
-[node name="StoneAgeLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_ef2nq")]
+[node name="StoneAgeLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves", "additional_enemy_waves") instance=ExtResource("1_ef2nq")]
 script = ExtResource("2_2y6o8")
 level_id = 2
 enemy_scenes = Array[PackedScene]([ExtResource("4_ef2nq")])
 spawn_waves_by_mask_count = true
 enemy_waves = [NodePath("Enemies/Wave0"), NodePath("Enemies/Wave1")]
+additional_enemy_waves = [NodePath("Enemies/ButtonWave")]
 
 [node name="Background" type="Sprite2D" parent="." index="0" unique_id=1382738158]
 modulate = Color(0, 0, 0, 1)
@@ -90,6 +91,17 @@ position = Vector2(-51, 132)
 
 [node name="SimpleEnemy7" parent="Enemies/Wave1" index="2" unique_id=414130071 instance=ExtResource("4_ef2nq")]
 position = Vector2(-11, 170)
+
+[node name="ButtonWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="2" unique_id=136446176]
+
+[node name="SimpleEnemy8" parent="Enemies/ButtonWave" index="0" unique_id=1850769552 instance=ExtResource("4_ef2nq")]
+position = Vector2(-39, 66)
+
+[node name="SimpleEnemy9" parent="Enemies/ButtonWave" index="1" unique_id=92009232 instance=ExtResource("4_ef2nq")]
+position = Vector2(-22, 131)
+
+[node name="SimpleEnemy10" parent="Enemies/ButtonWave" index="2" unique_id=925752198 instance=ExtResource("4_ef2nq")]
+position = Vector2(111, 58)
 
 [node name="Mask1" parent="." index="6" unique_id=1357724540 instance=ExtResource("7_yq6ii")]
 position = Vector2(-61, 183)
