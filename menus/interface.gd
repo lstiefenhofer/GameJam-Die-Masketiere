@@ -19,12 +19,15 @@ func _process(_delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"): 
-		get_tree().paused = !get_tree().paused
-		if get_tree().paused:
-			pause_menu.show()
-		else:
-			pause_menu.hide()
+		toggle_pause_menu()
 		
+func toggle_pause_menu() -> void:
+	get_tree().paused = !get_tree().paused
+	if get_tree().paused:
+		pause_menu.show()
+	else:
+		pause_menu.hide()
+
 
 func update_health() -> void:
 	health_bar.value = Globals.player_health
@@ -51,4 +54,7 @@ func _on_attack_signal(duration: float) -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	Globals.quit()
+
+func _on_main_menu_pressed() -> void:
+	Globals.goto_main_menu()

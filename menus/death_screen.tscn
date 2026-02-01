@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://dg6i2216yg4dc" path="res://menus/ui_theme.tres" id="1_qnkr8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v08c"]
-bg_color = Color(0, 0, 0, 0.5568628)
+bg_color = Color(0, 0, 0, 0)
 corner_detail = 1
 
 [node name="DeathScreen" type="Control" unique_id=214914419]
@@ -16,27 +16,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0v08c")
 
-[node name="DeathScreen" type="Panel" parent="." unique_id=327817039]
+[node name="DeathScreenPanel" type="Panel" parent="." unique_id=327817039]
 layout_mode = 0
-offset_top = -86.0
-offset_right = 1152.0
-offset_bottom = 776.0
+offset_right = 2000.0
+offset_bottom = 1000.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0v08c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen" unique_id=950060864]
+[node name="Menu" type="VBoxContainer" parent="DeathScreenPanel" unique_id=950060864]
+z_index = 20
 layout_mode = 0
-offset_left = 539.0
-offset_top = 289.0
-offset_right = 579.0
-offset_bottom = 329.0
+offset_left = 503.0
+offset_top = 214.0
+offset_right = 663.0
+offset_bottom = 345.0
 
-[node name="Label" type="Label" parent="DeathScreen/VBoxContainer" unique_id=2023710089]
+[node name="Label" type="Label" parent="DeathScreenPanel/Menu" unique_id=2023710089]
 layout_mode = 2
 text = "You died"
+horizontal_alignment = 1
 
-[node name="Respawn" type="Button" parent="DeathScreen/VBoxContainer" unique_id=298244446]
+[node name="Respawn" type="Button" parent="DeathScreenPanel/Menu" unique_id=298244446]
 layout_mode = 2
 theme = ExtResource("1_qnkr8")
 text = "Respawn"
 
-[connection signal="pressed" from="DeathScreen/VBoxContainer/Respawn" to="." method="_on_respawn_pressed"]
+[node name="MainMenu" type="Button" parent="DeathScreenPanel/Menu" unique_id=424485902]
+layout_mode = 2
+theme = ExtResource("1_qnkr8")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="DeathScreenPanel/Menu" unique_id=2131962619]
+layout_mode = 2
+theme = ExtResource("1_qnkr8")
+text = "Quit"
+
+[connection signal="pressed" from="DeathScreenPanel/Menu/Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="DeathScreenPanel/Menu/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="DeathScreenPanel/Menu/Quit" to="." method="_on_quit_pressed"]

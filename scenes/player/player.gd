@@ -135,3 +135,25 @@ func _on_player_legs_frame_changed() -> void:
 	if !skip_frame:
 		footstep_sound_player.stop()
 		footstep_sound_player.play()
+		
+var interactables_in_range: Array[Interactable] = []
+var current_interactable: Interactable = null	
+		
+func register_interactable(interactable: Interactable) -> void:
+	if not current_interactable:
+		current_interactable = interactable
+		interactable.show_interaction_hint()
+		Globals.set_in_interactable_range(true)
+	interactables_in_range.append(interactable)
+	
+func deregister_interactable(interactable: Interactable) -> void:
+	interactables_in_range.erase(interactable)
+	if interactable == current_interactable:
+		interactable.hide_interaction_hint()
+		current_interactable = null
+		Globals.set_in_interactable_range(false)
+		await get_tree().create_timer(0.3).timeout
+		if not interactables_in_range.is_empty():
+			current_interactable = interactables_in_range[0]
+			current_interactable.show_interaction_hint()
+			Globals.set_in_interactable_range(true)

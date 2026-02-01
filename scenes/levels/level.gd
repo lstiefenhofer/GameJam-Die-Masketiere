@@ -13,7 +13,9 @@ class_name Level
 ## If false spawns wave 0 for the mask with id 0 and wave 1 for the mask with id 1.
 @export var spawn_waves_by_mask_count: bool = false
 @export var enemy_waves: Array[Node2D]
-
+## Additional enemy waves that can be spawned by their name.
+@export var additional_enemy_waves: Array[Node2D]
+var additional_waves: Dictionary[String, Node2D] = {}
 
 func _ready() -> void:
 	# Inform all enemies where the player is.
@@ -27,19 +29,28 @@ func _ready() -> void:
 	for wave in enemy_waves:
 		if wave:
 			enemies.remove_child(wave)
-
-
+	for wave in additional_enemy_waves:
+		if wave:
+			enemies.remove_child(wave)
+		additional_waves[wave.name] = wave
+			
 func _on_enemy_spawn_timer_timeout() -> void:
+	if enemy_spawn_points.get_children().is_empty():
+		push_warning("There are no enemy spawn points defined in this level!")
+		enemy_spawn_timer.stop()
+		return
+	if enemy_scenes.is_empty():
+		push_error("There are no enemy scenes defined for this level!")
+		enemy_spawn_timer.stop()
+		return
 	var enemy_scene = enemy_scenes.pick_random()
 	if not enemy_scene:
-		push_error("There are no enemy scenes defined for this level!")
 		return
 	var enemy = enemy_scene.instantiate()
+
 	var spawn_point = enemy_spawn_points.get_children().pick_random()
 	if not spawn_point:
-		push_error("There are no enemy spawn points defined in this level!")
 		return
-	
 	# TODO Only spawn if there is no enemy near this spawn point.
 	# TODO Only spawn if the player is not at this spawn point.
 		
@@ -71,3 +82,14 @@ func transition_to_level(level: String) -> void:
 	
 func _transition_to_level(level: String) -> void:
 	get_tree().change_scene_to_file(level)
+
+
+func spawn_additional_enemy_wave(wave_name: String) -> void:
+	if not wave_name in additional_waves:
+		push_error("No additional wave with name '" + wave_name + '" defined.')
+		return
+	var wave = additional_waves[wave_name]
+	if wave:
+		for enemy in wave.get_children():
+			wave.remove_child(enemy)
+			enemies.add_child(enemy)

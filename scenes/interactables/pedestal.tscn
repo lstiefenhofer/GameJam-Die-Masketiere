@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_eyjd8"]
 [ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="2_6ugek"]
 [ext_resource type="Script" uid="uid://cj8cf26eeqvsd" path="res://scenes/interactables/pedestal.gd" id="2_fros2"]
-[ext_resource type="PackedScene" path="res://scenes/text_dialog.tscn" id="4_fros2"]
+[ext_resource type="PackedScene" uid="uid://kjfgp0vorixy" path="res://scenes/text_dialog.tscn" id="4_fros2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyjd8"]
 size = Vector2(16, 12)
@@ -17,6 +17,8 @@ script = ExtResource("2_fros2")
 interaction_text = ""
 pedestal_item_frame = 0
 base_frame = 37
+hide_item = true
+switch_pedestal_sprite = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
 position = Vector2(0, -6)

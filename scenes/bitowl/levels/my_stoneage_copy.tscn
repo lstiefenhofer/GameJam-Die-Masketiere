@@ -24,12 +24,13 @@ loop_mode = 1
 loop_end = 144207
 stereo = true
 
-[node name="StoneAgeLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_ef2nq")]
+[node name="StoneAgeLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves", "additional_enemy_waves") instance=ExtResource("1_ef2nq")]
 script = ExtResource("2_2y6o8")
 level_id = 2
 enemy_scenes = Array[PackedScene]([ExtResource("4_ef2nq")])
 spawn_waves_by_mask_count = true
 enemy_waves = [NodePath("Enemies/Wave0"), NodePath("Enemies/Wave1")]
+additional_enemy_waves = [NodePath("Enemies/ButtonWave")]
 
 [node name="Background" type="Sprite2D" parent="." index="0" unique_id=1382738158]
 modulate = Color(0, 0, 0, 1)
@@ -91,6 +92,17 @@ position = Vector2(-51, 132)
 [node name="SimpleEnemy7" parent="Enemies/Wave1" index="2" unique_id=414130071 instance=ExtResource("4_ef2nq")]
 position = Vector2(-11, 170)
 
+[node name="ButtonWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="2" unique_id=136446176]
+
+[node name="SimpleEnemy8" parent="Enemies/ButtonWave" index="0" unique_id=1850769552 instance=ExtResource("4_ef2nq")]
+position = Vector2(-39, 66)
+
+[node name="SimpleEnemy9" parent="Enemies/ButtonWave" index="1" unique_id=92009232 instance=ExtResource("4_ef2nq")]
+position = Vector2(-22, 131)
+
+[node name="SimpleEnemy10" parent="Enemies/ButtonWave" index="2" unique_id=925752198 instance=ExtResource("4_ef2nq")]
+position = Vector2(111, 58)
+
 [node name="Mask1" parent="." index="6" unique_id=1357724540 instance=ExtResource("7_yq6ii")]
 position = Vector2(-61, 183)
 mask = 1
@@ -110,17 +122,13 @@ position = Vector2(-4, 20)
 texture = ExtResource("8_l4dt6")
 
 [node name="Pedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="0" unique_id=610884856 instance=ExtResource("5_2y6o8")]
-position = Vector2(164, 174)
+position = Vector2(112, 81)
 interaction_text = "Pickaxe, Stone Age"
-hide_item = true
-switch_pedestal_sprite = false
 
 [node name="Pedestal2" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="1" unique_id=1529930657 instance=ExtResource("6_2lhn6")]
 position = Vector2(251, 153)
 interaction_text = "Fire, first discovered by man."
 pedestal_item_frame = 2
-hide_item = true
-switch_pedestal_sprite = false
 
 [node name="lamp" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="2" unique_id=1077203162 instance=ExtResource("8_ljss4")]
 position = Vector2(34, -23)
@@ -135,12 +143,12 @@ position = Vector2(100, -23)
 position = Vector2(130, -22)
 
 [node name="AntiquePedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="6" unique_id=1864882501 instance=ExtResource("11_2y6o8")]
-position = Vector2(190, 131)
+position = Vector2(97, 34)
 interaction_text = "asdf"
 pedestal_item_frame = 3
 
 [node name="AntiquePedestalTall" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="7" unique_id=507075269 instance=ExtResource("12_2lhn6")]
-position = Vector2(215, 167)
+position = Vector2(94, 58)
 pedestal_item_frame = 5
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(437125383) index="0" unique_id=9496302]

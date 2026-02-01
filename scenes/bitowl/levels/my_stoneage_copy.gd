@@ -16,3 +16,4 @@ func _on_recalculate_mask_effects() -> void:
 
 func _on_button_button_pressed() -> void:
 	exit_door.state = Door.State.EXIT
+	spawn_additional_enemy_wave("ButtonWave")
