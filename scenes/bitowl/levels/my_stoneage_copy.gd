@@ -7,7 +7,7 @@ func _ready() -> void:
 	Globals.recalculate_mask_effects.connect(_on_recalculate_mask_effects)
 
 func _on_exit_doot_player_entered_door() -> void:
-	transition_to_level("res://scenes/levels/antique.tscn")
+	transition_to_level(Globals.LevelId.Antique)
 
 func _on_recalculate_mask_effects() -> void:
 	if Globals.mask_count[level_id] >= 2:

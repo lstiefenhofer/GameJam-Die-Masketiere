@@ -5,8 +5,13 @@ extends Level
 @export var fake_pedestral_2: StaticBody2D
 @export var fake_pedestral_3: StaticBody2D
 @export var fake_pedestral_4: StaticBody2D
+@export var exit_door: Door
 
+var is_exit_open: bool = false
 
+func _ready() -> void:
+	super()
+	Globals.recalculate_mask_effects.connect(_on_recalculate_mask_effects)
 
 
 func _on_button_pressed_open_door() -> void:
@@ -22,3 +27,14 @@ func _on_button_pressed_open_second_door() -> void:
 	fake_pedestral_2.queue_free()
 	fake_pedestral_3.queue_free()
 	fake_pedestral_4.queue_free()
+
+# Open the exit when both masks are collected.
+func _on_recalculate_mask_effects() -> void:
+	if Globals.mask_count[level_id] >= 2:
+		exit_door.state = Door.State.EXIT
+		is_exit_open = true
+
+
+func _on_exit_door_player_entered_door() -> void:
+	if is_exit_open:
+		transition_to_level(Globals.LevelId.Antique)

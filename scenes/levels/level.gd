@@ -85,8 +85,8 @@ func _on_mask_collected(mask_id: int, mask_info:MaskInfo) -> void:
 	enemy_spawn_timer.start()
 
 
-func transition_to_level(level: String) -> void:
-	call_deferred("_transition_to_level", level)
+func transition_to_level(level: Globals.LevelId) -> void:
+	call_deferred("_transition_to_level", Globals.LevelLookup[level])
 	
 func _transition_to_level(level: String) -> void:
 	get_tree().change_scene_to_file(level)

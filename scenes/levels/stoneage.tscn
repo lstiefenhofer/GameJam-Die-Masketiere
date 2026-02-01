@@ -18,7 +18,7 @@
 [ext_resource type="Resource" uid="uid://c1dkrflvupvta" path="res://scenes/collectibles/MaskInfos/stoneage_mask_2.tres" id="11_mj601"]
 [ext_resource type="Texture2D" uid="uid://c7nddwiqf1u31" path="res://art/masks/StoneAgeMaskPart2.png" id="12_6ey7e"]
 
-[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4", "additional_enemy_waves") instance=ExtResource("1_cwsmi")]
+[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4", "exit_door", "additional_enemy_waves") instance=ExtResource("1_cwsmi")]
 script = ExtResource("2_6d0s8")
 closed_door_one = NodePath("Objects/ClosedDoorForMaskOne")
 closed_door_two = NodePath("Objects/ClosedDoorForMaskOne2")
@@ -26,6 +26,7 @@ fake_pedestral = NodePath("Objects/fake_Pedestral")
 fake_pedestral_2 = NodePath("Objects/fake_Pedestral2")
 fake_pedestral_3 = NodePath("Objects/fake_Pedestral3")
 fake_pedestral_4 = NodePath("Objects/fake_Pedestral4")
+exit_door = NodePath("Objects/ExitDoor")
 level_id = 0
 enemy_scenes = Array[PackedScene]([])
 additional_enemy_waves = [NodePath("Enemies/ButtonOneMonsterWave"), NodePath("Enemies/ButtonTwoMonsterWave")]
@@ -321,6 +322,7 @@ position = Vector2(901, -284)
 
 [connection signal="button_pressed" from="Objects/Button" to="." method="_on_button_pressed_open_door"]
 [connection signal="button_pressed" from="Objects/Button2" to="." method="_on_button_pressed_open_second_door"]
+[connection signal="player_entered_door" from="Objects/ExitDoor" to="." method="_on_exit_door_player_entered_door"]
 
 [editable path="Objects/Mask on Pedestal (one)"]
 [editable path="Objects/Mask on Pedestal (two)"]
