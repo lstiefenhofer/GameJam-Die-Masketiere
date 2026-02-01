@@ -35,16 +35,22 @@ func _ready() -> void:
 		additional_waves[wave.name] = wave
 			
 func _on_enemy_spawn_timer_timeout() -> void:
+	if enemy_spawn_points.get_children().is_empty():
+		push_warning("There are no enemy spawn points defined in this level!")
+		enemy_spawn_timer.stop()
+		return
+	if enemy_scenes.is_empty():
+		push_error("There are no enemy scenes defined for this level!")
+		enemy_spawn_timer.stop()
+		return
 	var enemy_scene = enemy_scenes.pick_random()
 	if not enemy_scene:
-		push_error("There are no enemy scenes defined for this level!")
 		return
 	var enemy = enemy_scene.instantiate()
+
 	var spawn_point = enemy_spawn_points.get_children().pick_random()
 	if not spawn_point:
-		push_error("There are no enemy spawn points defined in this level!")
 		return
-	
 	# TODO Only spawn if there is no enemy near this spawn point.
 	# TODO Only spawn if the player is not at this spawn point.
 		
