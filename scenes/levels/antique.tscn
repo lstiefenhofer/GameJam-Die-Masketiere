@@ -15,19 +15,20 @@
 [ext_resource type="Resource" uid="uid://dyi1bdkwi3j7q" path="res://scenes/collectibles/MaskInfos/antique_mask_3.tres" id="11_8wkef"]
 [ext_resource type="Texture2D" uid="uid://qd63ou4i46nq" path="res://art/masks/AntiqueMaskBottomFinal.png" id="12_pyd20"]
 [ext_resource type="AudioStream" uid="uid://bqyx0e7oapk1g" path="res://assets/sounds/Anthem of the Ancient.wav" id="15_0gbkt"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/spartan_enemy.tscn" id="15_j2tgi"]
-[ext_resource type="PackedScene" uid="uid://c5errvqf11csg" path="res://scenes/objects/antique_exit.tscn" id="16_f1lxh"]
+[ext_resource type="PackedScene" uid="uid://yqnr12vg33mm" path="res://scenes/enemies/spartan_enemy.tscn" id="15_j2tgi"]
+[ext_resource type="PackedScene" path="res://scenes/objects/antique_exit.tscn" id="16_f1lxh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imu10"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an862"]
 radius = 74.330345
 
-[node name="AntiqueLevel" unique_id=1222927860 instance=ExtResource("1_euvcv")]
+[node name="AntiqueLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_euvcv")]
 position = Vector2(-67, 3)
 script = ExtResource("2_0gbkt")
-level_id = 0
+level_id = 1
 enemy_scenes = Array[PackedScene]([])
+enemy_waves = [NodePath("Enemies/AltarWave"), NodePath("Enemies/LabyrinthWave"), NodePath("Enemies/ArenaWave")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1195534001]
 modulate = Color(0.05490196, 0.003921569, 0.13725491, 1)
