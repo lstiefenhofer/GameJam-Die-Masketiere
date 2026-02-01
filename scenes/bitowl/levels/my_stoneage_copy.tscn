@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bjlyqqr5cirn4" path="res://scenes/interactables/antique_pedestal.tscn" id="11_2y6o8"]
 [ext_resource type="PackedScene" uid="uid://jqhvra7mtk0a" path="res://scenes/objects/door.tscn" id="11_3pfpa"]
 [ext_resource type="PackedScene" uid="uid://cirr7hkwythdg" path="res://scenes/interactables/antique_pedestal_tall.tscn" id="12_2lhn6"]
+[ext_resource type="PackedScene" uid="uid://45cl1y18jxox" path="res://scenes/interactables/button.tscn" id="14_yq6ii"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2y6o8"]
 
@@ -25,7 +26,7 @@ stereo = true
 
 [node name="StoneAgeLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_ef2nq")]
 script = ExtResource("2_2y6o8")
-level_id = 1
+level_id = 2
 enemy_scenes = Array[PackedScene]([ExtResource("4_ef2nq")])
 spawn_waves_by_mask_count = true
 enemy_waves = [NodePath("Enemies/Wave0"), NodePath("Enemies/Wave1")]
@@ -38,6 +39,7 @@ scale = Vector2(1196.25, 940.74994)
 texture = SubResource("PlaceholderTexture2D_2y6o8")
 
 [node name="Darkness" parent="." index="1" unique_id=548543368]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="GroundLayer" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(873392170) index="0" unique_id=876772918 node_paths=PackedStringArray("wall_tilemap")]
@@ -56,6 +58,9 @@ tile_set = ExtResource("2_5vkbt")
 position = Vector2(32, 50)
 pushback_force = 150.0
 
+[node name="PauseMenu" parent="Player/Interface" parent_id_path=PackedInt32Array(2059150865, 55518087) index="2" unique_id=7342454]
+visible = false
+
 [node name="PlayerLegs" parent="Player" index="4" unique_id=1129114372]
 animation = &"Attack"
 
@@ -63,6 +68,7 @@ animation = &"Attack"
 stream = SubResource("AudioStreamWAV_p47bc")
 
 [node name="Wave0" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=985177452]
+visible = false
 
 [node name="SimpleEnemy2" parent="Enemies/Wave0" index="0" unique_id=616659278 instance=ExtResource("4_ef2nq")]
 position = Vector2(117, 22)
@@ -74,6 +80,7 @@ position = Vector2(61, 23)
 position = Vector2(127, 90)
 
 [node name="Wave1" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="1" unique_id=872338460]
+visible = false
 
 [node name="SimpleEnemy5" parent="Enemies/Wave1" index="0" unique_id=76929814 instance=ExtResource("4_ef2nq")]
 position = Vector2(-112, 121)
@@ -103,13 +110,13 @@ position = Vector2(-4, 20)
 texture = ExtResource("8_l4dt6")
 
 [node name="Pedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="0" unique_id=610884856 instance=ExtResource("5_2y6o8")]
-position = Vector2(-38, 96)
+position = Vector2(164, 174)
 interaction_text = "Pickaxe, Stone Age"
 hide_item = true
 switch_pedestal_sprite = false
 
 [node name="Pedestal2" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="1" unique_id=1529930657 instance=ExtResource("6_2lhn6")]
-position = Vector2(49, 75)
+position = Vector2(251, 153)
 interaction_text = "Fire, first discovered by man."
 pedestal_item_frame = 2
 hide_item = true
@@ -128,12 +135,12 @@ position = Vector2(100, -23)
 position = Vector2(130, -22)
 
 [node name="AntiquePedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="6" unique_id=1864882501 instance=ExtResource("11_2y6o8")]
-position = Vector2(-12, 53)
+position = Vector2(190, 131)
 interaction_text = "asdf"
 pedestal_item_frame = 3
 
 [node name="AntiquePedestalTall" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="7" unique_id=507075269 instance=ExtResource("12_2lhn6")]
-position = Vector2(13, 89)
+position = Vector2(215, 167)
 pedestal_item_frame = 5
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(437125383) index="0" unique_id=9496302]
@@ -186,7 +193,14 @@ state = 1
 position = Vector2(-74, 32)
 state = 1
 
+[node name="Button" parent="." index="15" unique_id=688393637 instance=ExtResource("14_yq6ii")]
+position = Vector2(27, 73)
+pre_interaction_text = "Oh a nice thing?"
+post_interaction_text = "It was a button. Something happened."
+
 [connection signal="player_entered_door" from="ExitDoor" to="." method="_on_exit_doot_player_entered_door"]
+[connection signal="button_pressed" from="Button" to="." method="_on_button_button_pressed"]
 
 [editable path="Player"]
+[editable path="Player/Interface"]
 [editable path="Mask0"]

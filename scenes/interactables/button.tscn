@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://45cl1y18jxox"]
+
+[ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_vt354"]
+[ext_resource type="Script" uid="uid://c4yes1w5yyj3" path="res://scenes/interactables/button.gd" id="2_nac6j"]
+[ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="3_etagj"]
+[ext_resource type="Texture2D" uid="uid://bye51il1dkc34" path="res://art/sprites/button.png" id="4_3o43r"]
+[ext_resource type="PackedScene" uid="uid://kjfgp0vorixy" path="res://scenes/text_dialog.tscn" id="5_etagj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nac6j"]
+size = Vector2(16, 12)
+
+[node name="Button" unique_id=75471443 instance=ExtResource("1_vt354")]
+script = ExtResource("2_nac6j")
+pre_interaction_text = ""
+post_interaction_text = ""
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
+shape = SubResource("RectangleShape2D_nac6j")
+
+[node name="Pedestal" type="Sprite2D" parent="." index="3" unique_id=1981855889]
+position = Vector2(0, -20)
+texture = ExtResource("3_etagj")
+hframes = 28
+vframes = 6
+frame = 35
+
+[node name="ButtonOff" type="Sprite2D" parent="." index="4" unique_id=713178851]
+position = Vector2(-2, -17)
+texture = ExtResource("4_3o43r")
+
+[node name="ButtonOn" type="Sprite2D" parent="." index="5" unique_id=1170213478]
+modulate = Color(0.4351923, 0.43519226, 0.43519226, 1)
+position = Vector2(3, -17)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_3o43r")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." index="6" unique_id=1535838241]
+vertices = PackedVector2Array(-12, -17, -12, 2, 11, 2, 11, -17)
+
+[node name="TextDialog" parent="." index="7" unique_id=587914214 instance=ExtResource("5_etagj")]

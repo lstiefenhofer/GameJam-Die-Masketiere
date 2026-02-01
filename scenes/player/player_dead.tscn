@@ -1,17 +1,33 @@
 [gd_scene format=3 uid="uid://b2t4nscqkub6l"]
 
+[ext_resource type="Script" uid="uid://6bvjwdkd0w8o" path="res://scenes/player/player_dead.gd" id="1_3uemv"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_4brto"]
+[ext_resource type="PackedScene" uid="uid://bgfoncibos763" path="res://menus/death_screen.tscn" id="2_jlvmp"]
 [ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="3_jlvmp"]
 [ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="4_0bc2g"]
 [ext_resource type="AudioStream" uid="uid://ttwyoddogqwm" path="res://assets/sounds/Death noice.wav" id="5_hm278"]
-[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_ubb5y"]
+[ext_resource type="Script" uid="uid://dsyyefxytmf6d" path="res://scenes/animated_sprite_flash.gd" id="5_ubb5y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75vfm"]
 shader = ExtResource("2_4brto")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash = 0.0
 
-[node name="Player" type="Node2D" unique_id=1193917726]
+[node name="PlayerDead" type="Node2D" unique_id=1193917726]
+script = ExtResource("1_3uemv")
+
+[node name="DeathScreen" parent="." unique_id=214914419 instance=ExtResource("2_jlvmp")]
+z_index = 10
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -144.0
+offset_top = -81.0
+offset_right = -144.0
+offset_bottom = -81.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1551943026]
 zoom = Vector2(4, 4)
@@ -34,6 +50,5 @@ script = ExtResource("5_ubb5y")
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=409666041]
 stream = ExtResource("5_hm278")
 autoplay = true
-bus = &"SFX"
 
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
