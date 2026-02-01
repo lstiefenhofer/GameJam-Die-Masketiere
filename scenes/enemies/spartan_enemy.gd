@@ -30,7 +30,7 @@ func spear_throw(in_damage : int):
 	can_move = false	
 	enemy_spritesheet.play("Attack")
 	var new_spear : Node2D = spear_scene.instantiate()
-	new_spear.global_position = global_position + Vector2.UP * 11.0
+	new_spear.global_position = global_position + Vector2.UP * 22.0
 	new_spear.look_at(get_target().global_position)
 	new_spear.instigator = self
 	get_tree().root.add_child(new_spear)

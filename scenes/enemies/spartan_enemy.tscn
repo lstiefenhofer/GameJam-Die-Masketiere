@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="1_vqdc5"]
 [ext_resource type="Script" uid="uid://dngojjwadsoek" path="res://scenes/enemies/spartan_enemy.gd" id="2_l6533"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_qobo4"]
-[ext_resource type="PackedScene" uid="uid://dufb0fu1eqa21" path="res://scenes/enemies/cavemen_drawing_spear.tscn" id="3_xtmyr"]
+[ext_resource type="PackedScene" uid="uid://tlu6qyncg5kg" path="res://scenes/enemies/spartan_spear.tscn" id="3_l6533"]
 [ext_resource type="SpriteFrames" uid="uid://i8ajr2u10f2n" path="res://art/sprites/leonidassprites.tres" id="5_jf3yn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6re15"]
@@ -25,7 +25,7 @@ radius = 30.0
 
 [node name="Spartan" unique_id=616659278 instance=ExtResource("1_vqdc5")]
 script = ExtResource("2_l6533")
-spear_scene = ExtResource("3_xtmyr")
+spear_scene = ExtResource("3_l6533")
 speed = 100.0
 attack_cooldown_max = 1.0
 min_nav_target_distance = 10.0
@@ -39,7 +39,7 @@ material = SubResource("ShaderMaterial_6re15")
 material = SubResource("ShaderMaterial_l6533")
 sprite_frames = ExtResource("5_jf3yn")
 animation = &"Walk"
-frame_progress = 0.72174704
+frame_progress = 0.77279145
 offset = Vector2(0, -23)
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
