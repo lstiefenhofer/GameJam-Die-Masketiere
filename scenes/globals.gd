@@ -21,8 +21,10 @@ var LevelLookup: Dictionary[LevelId, String] = {
 # Mask count in each level.
 var mask_count: Array[int] = [0, 0, 0]
 
+var collected_masks : Array[MaskInfo]
+
 @warning_ignore("unused_signal") 
-signal mask_collected(mask_count: int)
+signal mask_collected(mask_count: int, mask_info: MaskInfo)
 	
 # Everybody that calculates mask effects should check again if they are active.
 @warning_ignore("unused_signal") 

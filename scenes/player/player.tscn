@@ -6,10 +6,11 @@
 [ext_resource type="SpriteFrames" uid="uid://b3esrjopmp6pt" path="res://art/entities/Legs.tres" id="2_gmlin"]
 [ext_resource type="SpriteFrames" uid="uid://kpftjh6ywxev" path="res://art/entities/Body.tres" id="3_lvxji"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_p47bc"]
-[ext_resource type="Script" uid="uid://dsyyefxytmf6d" path="res://scenes/animated_sprite_flash.gd" id="5_p47bc"]
+[ext_resource type="Script" path="res://scenes/animated_sprite_flash.gd" id="5_p47bc"]
 [ext_resource type="Texture2D" uid="uid://c7sh05vbygiia" path="res://art/entities/PlayerAttackEffect.png" id="6_75vfm"]
 [ext_resource type="AudioStream" uid="uid://sowh21mrf481" path="res://assets/sounds/footstep_randomizer.tres" id="8_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://c733b3h88vgop" path="res://art/sprites/light_stronger.png" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://dj3a5ixluat1v" path="res://scenes/player/mask_attach_parent.gd" id="11_fm80t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
 radius = 3.0
@@ -25,7 +26,7 @@ shader_parameter/flash = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 21.0
 
-[node name="Player" type="CharacterBody2D" unique_id=2059150865 node_paths=PackedStringArray("legs", "body", "attack_effect", "footstep_sound_player")]
+[node name="Player" type="CharacterBody2D" unique_id=2059150865 node_paths=PackedStringArray("legs", "body", "attack_effect", "footstep_sound_player", "mask_attach_parent")]
 collision_layer = 2
 collision_mask = 11
 platform_on_leave = 2
@@ -37,9 +38,11 @@ body = NodePath("PlayerBody")
 attack_effect = NodePath("PlayerAttackEffect")
 death_scene = ExtResource("2_0owmy")
 footstep_sound_player = NodePath("RunningOnConcrete")
+mask_attach_parent = NodePath("MaskAttachParent")
 point_light_scale_per_mask_count = Array[float]([0.6, 0.75, 0.9, 1.1])
 
 [node name="Interface" parent="." unique_id=55518087 instance=ExtResource("2_75vfm")]
+visible = false
 z_index = 20
 offset_left = -144.0
 offset_top = -81.0
@@ -82,6 +85,7 @@ collision_mask = 12
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1825847568]
+visible = false
 position = Vector2(23, -10)
 shape = SubResource("CircleShape2D_gmlin")
 debug_color = Color(0.9804799, 0, 0.3832885, 0.41960785)
@@ -94,6 +98,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="PlayerAttackEffect" type="Sprite2D" parent="." unique_id=1546744407]
+visible = false
 texture = ExtResource("6_75vfm")
 offset = Vector2(0, -16)
 
@@ -101,6 +106,15 @@ offset = Vector2(0, -16)
 texture = ExtResource("10_h17s1")
 texture_scale = 0.61
 
+[node name="MaskAttachParent" type="Node2D" parent="." unique_id=1037009732 node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("11_fm80t")
+anim_idle_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, -1), Vector2(0, -2), Vector2(0, -1)])
+anim_attack_offsets = Array[Vector2]([Vector2(0, 1), Vector2(1, 1)])
+anim_walk_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+anim_hit_offsets = Array[Vector2]([Vector2(-1, 1)])
+animated_sprite = NodePath("../PlayerBody")
+
 [connection signal="frame_changed" from="PlayerLegs" to="." method="_on_player_legs_frame_changed"]
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
+[connection signal="frame_changed" from="PlayerBody" to="MaskAttachParent" method="_on_player_body_frame_changed"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

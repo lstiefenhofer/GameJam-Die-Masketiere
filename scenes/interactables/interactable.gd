@@ -9,6 +9,9 @@ var is_player_in_range: bool = false
 var is_current_interactable: bool = false
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint(): # Tool script abort
+		return
+	
 	if is_interactable and is_current_interactable and Input.is_action_just_pressed("Attack"):
 		interact()
 

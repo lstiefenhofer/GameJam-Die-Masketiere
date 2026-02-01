@@ -14,6 +14,8 @@ static var player : Player
 @export var death_scene : PackedScene
 @export var footstep_sound_player : AudioStreamPlayer2D
 
+@export var mask_attach_parent: Node2D
+
 ## The scale for the point light for the amount of masks collected in the antique.
 @export var point_light_scale_per_mask_count: Array[float]
 
@@ -126,6 +128,7 @@ func _on_recalculate_mask_effects() -> void:
 	if current_scale != point_light.texture_scale:
 		var tween = create_tween()
 		tween.tween_property(point_light, "texture_scale", current_scale, 0.6).set_trans(Tween.TRANS_BACK)
+
 
 var skip_frame = true
 func _on_player_legs_frame_changed() -> void:

@@ -46,6 +46,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var enemy_scene = enemy_scenes.pick_random()
 	if not enemy_scene:
 		return
+	var enemy_scene = enemy_scenes.pick_random()
 	var enemy = enemy_scene.instantiate()
 
 	var spawn_point = enemy_spawn_points.get_children().pick_random()
@@ -58,8 +59,16 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	enemies.add_child(enemy)
 
 
-func _on_mask_collected(mask_id: int) -> void:
+func _on_mask_collected(mask_id: int, mask_info:MaskInfo) -> void:
 	print("Mask "+ str(mask_id) + " collected.")
+	
+	if mask_info == null:
+		printerr("Interactable %s doesn't have a mask_info resource assigned yet. You can find them scenes/collectibles/MaskInfos" % [name])
+	
+	if Globals.collected_masks.has(mask_info):
+		printerr("Interactable %s already contains this mask_info. Try to assign another one. You can find them scenes/collectibles/MaskInfos" % [name])
+	
+	Globals.collected_masks.append(mask_info)
 	Globals.mask_count[level_id] += 1
 	Globals.recalculate_mask_effects.emit()
 

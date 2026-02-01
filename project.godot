@@ -36,6 +36,12 @@ project/assembly_name="GGJ26-DieMasketiere"
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://scenes/collectibles/MaskInfos/": "red"
+}
+
 [gui]
 
 theme/custom_font="uid://d263q0lpohl03"

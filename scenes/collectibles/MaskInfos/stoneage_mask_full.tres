@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MaskInfo" format=3 uid="uid://brqubkysm5ij0"]
+
+[ext_resource type="Script" uid="uid://buhxbuorkvclh" path="res://mask_resource.gd" id="1_cc4ak"]
+[ext_resource type="Texture2D" uid="uid://cca4lxmdbw1ab" path="res://art/masks/StoneAgeMask.png" id="2_cc4ak"]
+
+[resource]
+script = ExtResource("1_cc4ak")
+side = 3
+sprite = ExtResource("2_cc4ak")
+metadata/_custom_type_script = "uid://buhxbuorkvclh"

@@ -21,10 +21,6 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 bg_color = Color(1, 1, 1, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evbm3"]
-bg_color = Color(0, 0, 0, 0.7529412)
-corner_detail = 1
-
 [node name="Interface" type="Control" unique_id=55518087]
 process_mode = 3
 layout_mode = 3
@@ -66,7 +62,6 @@ show_percentage = false
 layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_evbm3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" unique_id=1788679540]
 layout_mode = 0
@@ -76,22 +71,24 @@ offset_right = 656.0
 offset_bottom = 345.0
 
 [node name="Label" type="Label" parent="PauseMenu/VBoxContainer" unique_id=352409243]
+material = ExtResource("2_jne5a")
 layout_mode = 2
 text = "Pause"
 horizontal_alignment = 1
 
 [node name="Continue" type="Button" parent="PauseMenu/VBoxContainer" unique_id=204640622]
+material = ExtResource("2_jne5a")
 layout_mode = 2
 text = "Continue"
 
 [node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer" unique_id=1938739175]
+material = ExtResource("2_jne5a")
 layout_mode = 2
-theme = ExtResource("3_jne5a")
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="PauseMenu/VBoxContainer" unique_id=447377266]
+material = ExtResource("2_jne5a")
 layout_mode = 2
-theme = ExtResource("3_jne5a")
 text = "Quit
 "
 
