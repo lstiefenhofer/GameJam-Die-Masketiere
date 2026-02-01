@@ -52,3 +52,7 @@ func _on_attack_signal(duration: float) -> void:
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_main_menu_pressed() -> void:
+	Globals.goto_main_menu()

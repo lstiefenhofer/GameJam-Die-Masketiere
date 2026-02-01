@@ -39,7 +39,17 @@ func _ready():
 	Input.set_custom_mouse_cursor(cursor_normal)
 
 func reset_player() -> void:
+	var nodes_to_remove = ["Player", "PlayerDead"]
+	for node in get_tree().get_root().get_children():
+		if node.name in nodes_to_remove:
+			node.queue_free()
+			
 	player_health = INITIAL_PLAYER_HEALTH
+
+func goto_main_menu() -> void:
+	reset_player()
+	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
+
 
 func setup_hover(node: Node):
 	# Target common interactable controls

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djoln41hqjjxi" path="res://menus/interface.gd" id="1_27vvk"]
 [ext_resource type="Material" uid="uid://pylwj71dvexw" path="res://materials/canvas_unshaded.tres" id="2_jne5a"]
 [ext_resource type="FontFile" uid="uid://d263q0lpohl03" path="res://assets/font/PressStart2P-Regular.ttf" id="2_qd775"]
-[ext_resource type="Theme" uid="uid://b0qqmind4lh6k" path="res://menus/ui_theme.tres" id="3_jne5a"]
+[ext_resource type="Theme" uid="uid://dg6i2216yg4dc" path="res://menus/ui_theme.tres" id="3_jne5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd775"]
 bg_color = Color(0, 0, 0, 1)
@@ -69,14 +69,20 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_evbm3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" unique_id=1788679540]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 289.0
-offset_right = 579.0
-offset_bottom = 329.0
+offset_left = 496.0
+offset_top = 250.0
+offset_right = 656.0
+offset_bottom = 345.0
 
 [node name="Label" type="Label" parent="PauseMenu/VBoxContainer" unique_id=352409243]
 layout_mode = 2
 text = "Pause"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="PauseMenu/VBoxContainer" unique_id=1938739175]
+layout_mode = 2
+theme = ExtResource("3_jne5a")
+text = "Main Menu"
 
 [node name="Quit" type="Button" parent="PauseMenu/VBoxContainer" unique_id=447377266]
 layout_mode = 2
@@ -84,4 +90,5 @@ theme = ExtResource("3_jne5a")
 text = "Quit
 "
 
+[connection signal="pressed" from="PauseMenu/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

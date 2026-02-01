@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdny0ndxm23wr" path="res://menus/main_menu.gd" id="1_8gy84"]
 [ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="2_ij7vn"]
 [ext_resource type="Shader" uid="uid://dt4i5nndsd784" path="res://menus/background.gdshader" id="2_rqbgu"]
-[ext_resource type="Theme" uid="uid://b0qqmind4lh6k" path="res://menus/ui_theme.tres" id="3_yjgyn"]
+[ext_resource type="Theme" uid="uid://dg6i2216yg4dc" path="res://menus/ui_theme.tres" id="3_yjgyn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rqbgu"]
 shader = ExtResource("2_rqbgu")
