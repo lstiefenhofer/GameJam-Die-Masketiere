@@ -4,20 +4,28 @@
 [ext_resource type="TileSet" uid="uid://cj36bnbmyq1f4" path="res://tilesets/antique.tres" id="2_sn8dm"]
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
 [ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
-[ext_resource type="Texture2D" uid="uid://pit5bppjgj8d" path="res://art/sprites/mask_placeholder.png" id="5_an862"]
 [ext_resource type="PackedScene" uid="uid://dfbdrcpshx1h8" path="res://scenes/interactables/destroayable_pillar.tscn" id="5_mkn5x"]
+[ext_resource type="PackedScene" uid="uid://bq27byiwjyk7g" path="res://scenes/enemies/mammoth.tscn" id="5_qjorr"]
 [ext_resource type="PackedScene" uid="uid://dgq38ubwibi54" path="res://scenes/interactables/mask.tscn" id="6_mkn5x"]
+[ext_resource type="Resource" uid="uid://deqqawvtecx7c" path="res://scenes/collectibles/MaskInfos/antique_mask_2.tres" id="7_j2tgi"]
+[ext_resource type="Texture2D" uid="uid://b1jqa52mjr1nl" path="res://art/masks/AntiqueMaskRightFinal.png" id="8_0gbkt"]
 [ext_resource type="PackedScene" uid="uid://bjlyqqr5cirn4" path="res://scenes/interactables/antique_pedestal.tscn" id="8_mfjjx"]
+[ext_resource type="Resource" uid="uid://cw6881ofjimg3" path="res://scenes/collectibles/MaskInfos/antique_mask_1.tres" id="9_f1lxh"]
 [ext_resource type="PackedScene" uid="uid://d1at0hf6hgb6t" path="res://scenes/enemies/caveman_drawing_enemy.tscn" id="9_mfjjx"]
+[ext_resource type="Texture2D" uid="uid://cfkyb437apit5" path="res://art/masks/AntiqueMaskLeftFinal.png" id="10_kxigy"]
+[ext_resource type="Resource" uid="uid://dyi1bdkwi3j7q" path="res://scenes/collectibles/MaskInfos/antique_mask_3.tres" id="11_8wkef"]
+[ext_resource type="Texture2D" uid="uid://qd63ou4i46nq" path="res://art/masks/AntiqueMaskBottomFinal.png" id="12_pyd20"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imu10"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_an862"]
 radius = 74.330345
 
-[node name="AntiqueLevel" unique_id=1222927860 instance=ExtResource("1_euvcv")]
+[node name="AntiqueLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_euvcv")]
 level_id = 1
-enemy_scenes = Array[PackedScene]([])
+enemy_scenes = Array[PackedScene]([ExtResource("9_mfjjx")])
+spawn_waves_by_mask_count = true
+enemy_waves = [NodePath("Enemies/Mask1Wave")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1195534001]
 modulate = Color(0.05490196, 0.003921569, 0.13725491, 1)
@@ -46,8 +54,14 @@ tile_set = ExtResource("2_sn8dm")
 [node name="Player" parent="." index="3" unique_id=2059150865]
 position = Vector2(55, 67)
 
+[node name="Mask1Wave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=1883581777]
+
+[node name="Mammoth" parent="Enemies/Mask1Wave" index="0" unique_id=616659278 instance=ExtResource("5_qjorr")]
+position = Vector2(404, 111)
+
 [node name="Mask2" parent="." index="6" unique_id=1213015157 instance=ExtResource("6_mkn5x")]
 position = Vector2(1505, -116)
+mask_info = ExtResource("7_j2tgi")
 
 [node name="CollisionShape2D" parent="Mask2" index="0" unique_id=520145219]
 position = Vector2(4, 2)
@@ -57,10 +71,11 @@ position = Vector2(3, 42)
 
 [node name="MaskSprite" parent="Mask2" index="3" unique_id=810192070]
 position = Vector2(2, 22)
-texture = ExtResource("5_an862")
+texture = ExtResource("8_0gbkt")
 
 [node name="Mask" parent="." index="7" unique_id=1298980630 instance=ExtResource("6_mkn5x")]
 position = Vector2(626, -465)
+mask_info = ExtResource("9_f1lxh")
 
 [node name="CollisionShape2D" parent="Mask" index="0" unique_id=520145219]
 position = Vector2(2, 8)
@@ -76,10 +91,11 @@ offset_right = 32.0
 offset_bottom = 35.0
 
 [node name="MaskSprite" parent="Mask" index="3" unique_id=810192070]
-texture = ExtResource("5_an862")
+texture = ExtResource("10_kxigy")
 
 [node name="Mask3" parent="." index="8" unique_id=1993649414 instance=ExtResource("6_mkn5x")]
 position = Vector2(-111, -1023)
+mask_info = ExtResource("11_8wkef")
 
 [node name="CollisionShape2D" parent="Mask3" index="0" unique_id=520145219]
 position = Vector2(4, 3)
@@ -95,7 +111,7 @@ offset_right = 61.0
 offset_bottom = 29.0
 
 [node name="MaskSprite" parent="Mask3" index="3" unique_id=810192070]
-texture = ExtResource("5_an862")
+texture = ExtResource("12_pyd20")
 
 [node name="Objects" parent="." index="9" unique_id=1880016874]
 z_index = -1
@@ -258,7 +274,13 @@ interaction_text = "Water for the thirsty."
 pedestal_item_frame = 4
 hide_item = true
 
-[node name="CavemanDrawing" parent="." index="12" unique_id=616659278 instance=ExtResource("9_mfjjx")]
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(437125383) index="0" unique_id=1301367228]
+position = Vector2(29, 87)
+
+[node name="EnemySpawnTimer" parent="." index="11" unique_id=1359204760]
+wait_time = 5.0
+
+[node name="CavemanDrawing" parent="." index="12" unique_id=1375570589 instance=ExtResource("9_mfjjx")]
 position = Vector2(166, -4)
 
 [editable path="Mask2"]
