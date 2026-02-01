@@ -1,16 +1,25 @@
 extends Node
 
-var player_health: float = 10
+const INITIAL_PLAYER_HEALTH: float = 1
+var player_health: float = INITIAL_PLAYER_HEALTH
+
 @warning_ignore("unused_signal") 
 signal attack_signal(duration: float)
 
 enum LevelId {
 	StoneAge,
-	Antique
+	Antique,
+	StoneAgeCopy,
+}
+
+var LevelLookup: Dictionary[LevelId, String] = {
+	LevelId.Antique: "res://scenes/levels/antique.tscn",
+	LevelId.StoneAge: "res://scenes/levels/stoneage.tscn",
+	LevelId.StoneAgeCopy: "res://scenes/bitowl/levels/my_stoneage_copy.tscn",
 }
 
 # Mask count in each level.
-var mask_count: Array[int] = [0, 0]
+var mask_count: Array[int] = [0, 0, 0]
 
 @warning_ignore("unused_signal") 
 signal mask_collected(mask_count: int)
@@ -28,6 +37,9 @@ var cursor_2x = false
 
 func _ready():
 	Input.set_custom_mouse_cursor(cursor_normal)
+
+func reset_player() -> void:
+	player_health = INITIAL_PLAYER_HEALTH
 
 func setup_hover(node: Node):
 	# Target common interactable controls

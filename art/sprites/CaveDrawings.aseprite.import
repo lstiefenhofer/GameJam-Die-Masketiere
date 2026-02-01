@@ -3,12 +3,11 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://bu28b8ips5hwk"
-path="res://.godot/imported/CaveDrawings.aseprite-2969c1377c5df306c6db572ed6e07031.scn"
+valid=false
 
 [deps]
 
 source_file="res://art/sprites/CaveDrawings.aseprite"
-dest_files=["res://.godot/imported/CaveDrawings.aseprite-2969c1377c5df306c6db572ed6e07031.scn"]
 
 [params]
 

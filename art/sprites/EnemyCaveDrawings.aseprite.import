@@ -3,12 +3,11 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://dwlou2bykpmwl"
-path="res://.godot/imported/EnemyCaveDrawings.aseprite-d0dce67a731d385dad15045f9d142bf0.scn"
+valid=false
 
 [deps]
 
 source_file="res://art/sprites/EnemyCaveDrawings.aseprite"
-dest_files=["res://.godot/imported/EnemyCaveDrawings.aseprite-d0dce67a731d385dad15045f9d142bf0.scn"]
 
 [params]
 
