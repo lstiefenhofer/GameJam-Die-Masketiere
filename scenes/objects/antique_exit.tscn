@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c5errvqf11csg"]
+
+[ext_resource type="Script" uid="uid://dc8kt6cvdb1vn" path="res://scenes/objects/antique_exit.gd" id="1_1427l"]
+[ext_resource type="Texture2D" uid="uid://eqmg0thkdirj" path="res://art/sprites/doors.png" id="2_4rect"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w67d7"]
+size = Vector2(40, 20)
+
+[node name="AntiqueExit" type="Area2D" unique_id=621082964 node_paths=PackedStringArray("sprite_2d")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_1427l")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783382168]
+shape = SubResource("RectangleShape2D_w67d7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=362069000]
+position = Vector2(-1, -18)
+texture = ExtResource("2_4rect")
+hframes = 3
+frame = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

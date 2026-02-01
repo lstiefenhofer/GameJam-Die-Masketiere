@@ -89,6 +89,9 @@ func _on_mask_collected(mask_id: int, mask_info:MaskInfo) -> void:
 func transition_to_level(level: Globals.LevelId) -> void:
 	call_deferred("_transition_to_level", Globals.LevelLookup[level])
 	
+func transition_to_scene(scene: String) -> void:
+	call_deferred("_transition_to_level", scene)
+	
 
 func _transition_to_level(level: String) -> void:
 	get_tree().paused = true
