@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MaskInfo" format=3 uid="uid://deqqawvtecx7c"]
 
 [ext_resource type="Script" uid="uid://buhxbuorkvclh" path="res://mask_resource.gd" id="1_o04io"]
-[ext_resource type="Texture2D" uid="uid://boej8ib2ewd6t" path="res://art/masks/AntiqueRight.png" id="2_o04io"]
+[ext_resource type="Texture2D" uid="uid://b1jqa52mjr1nl" path="res://art/masks/AntiqueMaskRightFinal.png" id="2_o04io"]
 
 [resource]
 script = ExtResource("1_o04io")
