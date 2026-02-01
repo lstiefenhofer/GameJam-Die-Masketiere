@@ -36,11 +36,12 @@ func _update_sprite() -> void:
 			pedestal_item.frame = pedestal_item_frame + base_frame
 
 func interact() -> void:
-	super()
+	hide_interaction_hint()
 	if interaction_text != "":
 		text_dialog.show_text(interaction_text)
 		await text_dialog.dialog_closed
-		
+	
+	super()
 	if hide_item:
 		pedestal_item.hide()
 	if switch_pedestal_sprite:

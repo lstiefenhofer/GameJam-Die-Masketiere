@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://45cl1y18jxox"]
+[gd_scene format=3 uid="uid://bjrbjg8lm638c"]
 
 [ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_vt354"]
-[ext_resource type="Script" uid="uid://c4yes1w5yyj3" path="res://scenes/interactables/button.gd" id="2_nac6j"]
+[ext_resource type="Script" path="res://scenes/interactables/button.gd" id="2_nac6j"]
 [ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="3_etagj"]
 [ext_resource type="Texture2D" uid="uid://bye51il1dkc34" path="res://art/sprites/button.png" id="4_3o43r"]
-[ext_resource type="PackedScene" uid="uid://kjfgp0vorixy" path="res://scenes/text_dialog.tscn" id="5_etagj"]
+[ext_resource type="PackedScene" path="res://scenes/text_dialog.tscn" id="5_etagj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nac6j"]
 size = Vector2(16, 12)
 
 [node name="Button" unique_id=75471443 instance=ExtResource("1_vt354")]
 script = ExtResource("2_nac6j")
-pre_interaction_text = ""
-post_interaction_text = ""
+pre_interaction_text = "Press with Caution"
+post_interaction_text = "Survive!"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
 shape = SubResource("RectangleShape2D_nac6j")

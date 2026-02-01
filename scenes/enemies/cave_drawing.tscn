@@ -1,24 +1,40 @@
-[gd_scene format=3 uid="uid://kb1j8jnhop6f"]
+[gd_scene format=3 uid="uid://cccxxxqen3p61"]
 
 [ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="1_gpi6s"]
-[ext_resource type="Script" uid="uid://cjh34kh8m5wko" path="res://scenes/enemies/cave_drawing.gd" id="2_2fpdd"]
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_rr5ou"]
 [ext_resource type="SpriteFrames" uid="uid://1reyxlji7v7h" path="res://art/sprites/EnemyCaveDrawingsSpriteFrames.tres" id="4_6qmdl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3issb"]
+[sub_resource type="GDScript" id="GDScript_paa1m"]
+script/source = "extends EnemyBase
+
+
+
+
+func default_attack():
+	pass
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpi6s"]
+resource_local_to_scene = true
+shader = ExtResource("3_rr5ou")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fpdd"]
 resource_local_to_scene = true
 shader = ExtResource("3_rr5ou")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash = 0.0
 
 [node name="CaveDrawing" unique_id=616659278 instance=ExtResource("1_gpi6s")]
-script = ExtResource("2_2fpdd")
+script = SubResource("GDScript_paa1m")
 
 [node name="EnemyPlaceholder" parent="." index="0" unique_id=864650589]
 visible = false
-material = SubResource("ShaderMaterial_3issb")
+material = SubResource("ShaderMaterial_gpi6s")
 
 [node name="EnemySpritesheet" parent="." index="1" unique_id=1062563798]
+material = SubResource("ShaderMaterial_2fpdd")
 sprite_frames = ExtResource("4_6qmdl")
 animation = &"Throw"
 frame = 7

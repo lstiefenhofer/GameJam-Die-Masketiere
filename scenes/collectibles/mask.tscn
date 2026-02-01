@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://7an8l0cxxr8c"]
+[gd_scene format=3 uid="uid://c4x7n1ky2w1ol"]
 
 [ext_resource type="PackedScene" uid="uid://dk5ia4h84xgn7" path="res://scenes/collectibles/collectible.tscn" id="1_kbmjh"]
 [ext_resource type="Texture2D" uid="uid://pit5bppjgj8d" path="res://art/sprites/mask_placeholder.png" id="2_ss8jw"]

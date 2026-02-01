@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bviuebiesy802" path="res://scenes/levels/level.tscn" id="1_euvcv"]
 [ext_resource type="TileSet" uid="uid://cj36bnbmyq1f4" path="res://tilesets/antique.tres" id="2_sn8dm"]
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
-[ext_resource type="PackedScene" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
+[ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
+[ext_resource type="Texture2D" uid="uid://pit5bppjgj8d" path="res://art/sprites/mask_placeholder.png" id="5_an862"]
 [ext_resource type="PackedScene" uid="uid://dfbdrcpshx1h8" path="res://scenes/interactables/destroayable_pillar.tscn" id="5_mkn5x"]
 [ext_resource type="PackedScene" path="res://scenes/interactables/mask.tscn" id="6_mkn5x"]
 [ext_resource type="Texture2D" uid="uid://cklptnjaxjfn5" path="res://art/masks/AntiqueBottom.png" id="7_imu10"]
@@ -65,7 +66,10 @@ offset_top = 21.0
 offset_right = 32.0
 offset_bottom = 35.0
 
-[node name="Mask2" parent="." index="7" unique_id=1213015157 instance=ExtResource("6_mkn5x")]
+[node name="MaskSprite" parent="Mask" index="3" unique_id=810192070]
+texture = ExtResource("5_an862")
+
+[node name="Mask2" parent="." index="6" unique_id=1213015157 instance=ExtResource("6_mkn5x")]
 position = Vector2(1505, -116)
 
 [node name="CollisionShape2D" parent="Mask2" index="0" unique_id=520145219]
@@ -74,9 +78,9 @@ position = Vector2(4, 2)
 [node name="CollisionShape2D" parent="Mask2/InteractionArea" parent_id_path=PackedInt32Array(1213015157, 2015261441) index="0" unique_id=1887153074]
 position = Vector2(3, 42)
 
-[node name="AntiqueLeft" parent="Mask2" index="3" unique_id=810192070]
+[node name="MaskSprite" parent="Mask2" index="3" unique_id=810192070]
 position = Vector2(2, 22)
-texture = ExtResource("8_mfjjx")
+texture = ExtResource("5_an862")
 
 [node name="Mask3" parent="." index="8" unique_id=1993649414 instance=ExtResource("6_mkn5x")]
 position = Vector2(-111, -1023)
@@ -94,8 +98,8 @@ offset_top = 15.0
 offset_right = 61.0
 offset_bottom = 29.0
 
-[node name="AntiqueLeft" parent="Mask3" index="3" unique_id=810192070]
-texture = ExtResource("7_imu10")
+[node name="MaskSprite" parent="Mask3" index="3" unique_id=810192070]
+texture = ExtResource("5_an862")
 
 [node name="Objects" parent="." index="9" unique_id=1880016874]
 z_index = -1

@@ -1,6 +1,6 @@
 extends Node
 
-const INITIAL_PLAYER_HEALTH: float = 1
+const INITIAL_PLAYER_HEALTH: float = 10.0
 var player_health: float = INITIAL_PLAYER_HEALTH
 
 @warning_ignore("unused_signal") 
@@ -21,12 +21,16 @@ var LevelLookup: Dictionary[LevelId, String] = {
 # Mask count in each level.
 var mask_count: Array[int] = [0, 0, 0]
 
+var collected_masks : Array[MaskInfo]
+
 @warning_ignore("unused_signal") 
-signal mask_collected(mask_count: int)
+signal mask_collected(mask_count: int, mask_info: MaskInfo)
 	
 # Everybody that calculates mask effects should check again if they are active.
 @warning_ignore("unused_signal") 
 signal recalculate_mask_effects()
+
+const MAIN_MENU = preload("uid://ditt1j1ooojdu")
 
 @onready var cursor_normal = preload("res://assets/nes.css/cursor.png")
 @onready var cursor_hover = preload("res://assets/nes.css/cursor-click.png")
@@ -38,6 +42,10 @@ var cursor_2x = false
 func _ready():
 	Input.set_custom_mouse_cursor(cursor_normal)
 
+func quit():
+	print("Quiting game")
+	get_tree().quit()
+
 func reset_player() -> void:
 	var nodes_to_remove = ["Player", "PlayerDead"]
 	for node in get_tree().get_root().get_children():
@@ -45,10 +53,11 @@ func reset_player() -> void:
 			node.queue_free()
 			
 	player_health = INITIAL_PLAYER_HEALTH
+	get_tree().paused = false
 
 func goto_main_menu() -> void:
 	reset_player()
-	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
+	get_tree().change_scene_to_packed(MAIN_MENU)
 
 
 func setup_hover(node: Node):

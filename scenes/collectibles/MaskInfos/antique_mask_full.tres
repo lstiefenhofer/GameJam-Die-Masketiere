@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MaskInfo" format=3 uid="uid://clk4k31lfyhfr"]
+
+[ext_resource type="Script" uid="uid://buhxbuorkvclh" path="res://mask_resource.gd" id="1_478n7"]
+[ext_resource type="Texture2D" uid="uid://crty5sx3b8d5g" path="res://art/masks/AntiqueFaceRight.png" id="2_478n7"]
+
+[resource]
+script = ExtResource("1_478n7")
+side = 3
+group = 1
+sprite = ExtResource("2_478n7")
+metadata/_custom_type_script = "uid://buhxbuorkvclh"

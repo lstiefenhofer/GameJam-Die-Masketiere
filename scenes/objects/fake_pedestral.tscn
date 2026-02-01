@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dhj2712o4gmi"]
+
+[ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="1_py627"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yie6a"]
+size = Vector2(12, 14)
+
+[node name="fake_Pedestral" type="StaticBody2D" unique_id=1055746718]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1070742741]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_yie6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210912774]
+
+[node name="Stoneage" type="Sprite2D" parent="." unique_id=142392312]
+position = Vector2(0, -1)
+texture = ExtResource("1_py627")
+region_enabled = true
+region_rect = Rect2(112, 64, 16, 16)

@@ -14,6 +14,8 @@ static var player : Player
 @export var death_scene : PackedScene
 @export var footstep_sound_player : AudioStreamPlayer2D
 
+@export var mask_attach_parent: Node2D
+
 ## The scale for the point light for the amount of masks collected in the antique.
 @export var point_light_scale_per_mask_count: Array[float]
 
@@ -127,6 +129,7 @@ func _on_recalculate_mask_effects() -> void:
 		var tween = create_tween()
 		tween.tween_property(point_light, "texture_scale", current_scale, 0.6).set_trans(Tween.TRANS_BACK)
 
+
 var skip_frame = true
 func _on_player_legs_frame_changed() -> void:
 	if legs.animation != "Walk":
@@ -150,9 +153,10 @@ func deregister_interactable(interactable: Interactable) -> void:
 	interactables_in_range.erase(interactable)
 	if interactable == current_interactable:
 		interactable.hide_interaction_hint()
-		if interactables_in_range.is_empty():
-			current_interactable = null
-			Globals.set_in_interactable_range(false)
-		else:
+		current_interactable = null
+		Globals.set_in_interactable_range(false)
+		await get_tree().create_timer(0.3).timeout
+		if not interactables_in_range.is_empty():
 			current_interactable = interactables_in_range[0]
 			current_interactable.show_interaction_hint()
+			Globals.set_in_interactable_range(true)
