@@ -46,6 +46,7 @@ script = ExtResource("1_1ngp2")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=836757091]
 color = Color(1, 0.827451, 0.54509807, 1)
 texture = ExtResource("1_06rti")
+texture_scale = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=198049928]
 sprite_frames = SubResource("SpriteFrames_6n3ue")
