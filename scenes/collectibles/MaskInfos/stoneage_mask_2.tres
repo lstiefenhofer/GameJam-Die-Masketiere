@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="MaskInfo" format=3 uid="uid://c1dkrflvupvta"]
 
-[ext_resource type="Script" path="res://mask_resource.gd" id="1_sbmg2"]
-[ext_resource type="Texture2D" uid="uid://c7nddwiqf1u31" path="res://art/masks/StoneAgeMaskPart2.png" id="2_6snc3"]
+[ext_resource type="Script" uid="uid://buhxbuorkvclh" path="res://mask_resource.gd" id="1_sbmg2"]
+[ext_resource type="Texture2D" uid="uid://dcu6acj6a8pxa" path="res://art/masks/StoneAgeMaskLeftFinal.png" id="2_s7e8q"]
 
 [resource]
 script = ExtResource("1_sbmg2")
-sprite = ExtResource("2_6snc3")
+sprite = ExtResource("2_s7e8q")
