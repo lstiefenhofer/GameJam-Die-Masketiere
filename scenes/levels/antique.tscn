@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cnj8k43mv4se8"]
 
 [ext_resource type="PackedScene" uid="uid://bviuebiesy802" path="res://scenes/levels/level.tscn" id="1_euvcv"]
+[ext_resource type="Script" uid="uid://cyu8kx006obqi" path="res://scenes/levels/antique.gd" id="2_0gbkt"]
 [ext_resource type="TileSet" uid="uid://cj36bnbmyq1f4" path="res://tilesets/antique.tres" id="2_sn8dm"]
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
 [ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
@@ -21,11 +22,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_an862"]
 radius = 74.330345
 
-[node name="AntiqueLevel" unique_id=1222927860 node_paths=PackedStringArray("enemy_waves") instance=ExtResource("1_euvcv")]
+[node name="AntiqueLevel" unique_id=1222927860 instance=ExtResource("1_euvcv")]
 position = Vector2(-67, 3)
-level_id = 1
+script = ExtResource("2_0gbkt")
+level_id = 0
 enemy_scenes = Array[PackedScene]([])
-enemy_waves = [NodePath("Enemies/AltarWave"), NodePath("Enemies/LabyrinthWave"), NodePath("Enemies/ArenaWave")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1195534001]
 modulate = Color(0.05490196, 0.003921569, 0.13725491, 1)
@@ -295,6 +296,9 @@ position = Vector2(242, -291)
 interaction_text = "Water for the thirsty."
 pedestal_item_frame = 4
 hide_item = true
+
+[node name="AntiqueExit" parent="Objects" index="35" unique_id=621082964 instance=ExtResource("16_f1lxh")]
+position = Vector2(46, -1)
 
 [node name="EnemySpawnTimer" parent="." index="11" unique_id=1359204760]
 wait_time = 10.0
