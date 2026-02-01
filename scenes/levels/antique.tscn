@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
 [ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
 [ext_resource type="PackedScene" uid="uid://dfbdrcpshx1h8" path="res://scenes/interactables/destroayable_pillar.tscn" id="5_mkn5x"]
-[ext_resource type="PackedScene" uid="uid://bq27byiwjyk7g" path="res://scenes/enemies/mammoth.tscn" id="5_qjorr"]
 [ext_resource type="PackedScene" uid="uid://dgq38ubwibi54" path="res://scenes/interactables/mask.tscn" id="6_mkn5x"]
 [ext_resource type="Resource" uid="uid://deqqawvtecx7c" path="res://scenes/collectibles/MaskInfos/antique_mask_2.tres" id="7_j2tgi"]
 [ext_resource type="Texture2D" uid="uid://b1jqa52mjr1nl" path="res://art/masks/AntiqueMaskRightFinal.png" id="8_0gbkt"]
@@ -14,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cfkyb437apit5" path="res://art/masks/AntiqueMaskLeftFinal.png" id="10_kxigy"]
 [ext_resource type="Resource" uid="uid://dyi1bdkwi3j7q" path="res://scenes/collectibles/MaskInfos/antique_mask_3.tres" id="11_8wkef"]
 [ext_resource type="Texture2D" uid="uid://qd63ou4i46nq" path="res://art/masks/AntiqueMaskBottomFinal.png" id="12_pyd20"]
+[ext_resource type="PackedScene" uid="uid://yqnr12vg33mm" path="res://scenes/enemies/spartan_enemy.tscn" id="15_j2tgi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imu10"]
 
@@ -59,30 +59,24 @@ position = Vector2(735, -307)
 
 [node name="AltarWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="0" unique_id=1883581777]
 
-[node name="Mammoth" parent="Enemies/AltarWave" index="0" unique_id=616659278 instance=ExtResource("5_qjorr")]
-position = Vector2(610, -302)
+[node name="Spartan" parent="Enemies/AltarWave" index="0" unique_id=687843329 instance=ExtResource("15_j2tgi")]
+position = Vector2(549, -308)
 
 [node name="LabyrinthWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="1" unique_id=2045129901]
 
-[node name="Mammoth" parent="Enemies/LabyrinthWave" index="0" unique_id=1369036644 instance=ExtResource("5_qjorr")]
-position = Vector2(-177, -954)
+[node name="Spartan" parent="Enemies/LabyrinthWave" index="0" unique_id=616659278 instance=ExtResource("15_j2tgi")]
+position = Vector2(-227, -953)
 
-[node name="Mammoth2" parent="Enemies/LabyrinthWave" index="1" unique_id=2031225100 instance=ExtResource("5_qjorr")]
-position = Vector2(113, -956)
+[node name="Spartan2" parent="Enemies/LabyrinthWave" index="1" unique_id=981389112 instance=ExtResource("15_j2tgi")]
+position = Vector2(190, -952)
 
 [node name="ArenaWave" type="Node2D" parent="Enemies" parent_id_path=PackedInt32Array(373292418) index="2" unique_id=59035201]
 
-[node name="Mammoth" parent="Enemies/ArenaWave" index="0" unique_id=730442205 instance=ExtResource("5_qjorr")]
-position = Vector2(1412, 23)
+[node name="Spartan" parent="Enemies/ArenaWave" index="0" unique_id=1316678478 instance=ExtResource("15_j2tgi")]
+position = Vector2(1372, -14)
 
-[node name="Mammoth2" parent="Enemies/ArenaWave" index="1" unique_id=546317156 instance=ExtResource("5_qjorr")]
-position = Vector2(1608, 31)
-
-[node name="Mammoth3" parent="Enemies/ArenaWave" index="2" unique_id=386455459 instance=ExtResource("5_qjorr")]
-position = Vector2(1412, -145)
-
-[node name="Mammoth4" parent="Enemies/ArenaWave" index="3" unique_id=134558702 instance=ExtResource("5_qjorr")]
-position = Vector2(1610, -147)
+[node name="Spartan2" parent="Enemies/ArenaWave" index="1" unique_id=1788724154 instance=ExtResource("15_j2tgi")]
+position = Vector2(1641, -110)
 
 [node name="ArenaMask" parent="." index="6" unique_id=1213015157 instance=ExtResource("6_mkn5x")]
 position = Vector2(1505, -116)
