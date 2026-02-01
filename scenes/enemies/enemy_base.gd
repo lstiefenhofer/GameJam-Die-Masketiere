@@ -5,6 +5,8 @@ class_name EnemyBase
 @export var attack_cooldown_min: float = 0.5
 @export var attack_cooldown_max: float = 1.5
 @export var forget_radius: float = 200.0
+@export var invert_flip: bool = false
+@export var min_nav_target_distance: float = 0.0
 var _default_max_speed = 100
 var _default_speed = 50
 @export var health: float = 3:
@@ -19,6 +21,7 @@ var _default_speed = 50
 @onready var enemy_placeholder: Sprite2D = $EnemyPlaceholder
 @onready var enemy_spritesheet: AnimatedSpriteFlash = $EnemySpritesheet
 @onready var sprite_flash: SpriteFlash = $EnemyPlaceholder
+@onready var animated_sprite_flash: AnimatedSpriteFlash = $EnemySpritesheet
 @onready var attack_sprite: Sprite2D = $AttackSprite
 @onready var nearby_shape: CollisionShape2D = $DetectionArea/CollisionShape2D
 
@@ -78,6 +81,12 @@ func _process(delta: float) -> void:
 		_time_spend_on_current_navigation += delta
 		if _time_spend_on_current_navigation > _max_time_spending_in_navigation:
 			stop_movement_override()
+			
+	if enemy_spritesheet.sprite_frames and enemy_spritesheet.animation != "Attack":
+		if velocity.length_squared() > 1 and enemy_spritesheet.animation != "Walk":
+			enemy_spritesheet.play("Walk")
+		elif velocity.length_squared() == 0 and enemy_spritesheet.animation != "Idle":
+			enemy_spritesheet.play("Idle")
 
 
 func choose_attack():
@@ -106,9 +115,9 @@ func _physics_process(_delta: float) -> void:
 			velocity = velocity_to_next_target
 			
 		if enemy_placeholder:
-			enemy_placeholder.flip_h = velocity.x < 0
+			enemy_placeholder.flip_h = velocity.x > 0 if invert_flip else velocity.x < 0
 		if enemy_spritesheet:
-			enemy_spritesheet.flip_h = velocity.x < 0
+			enemy_spritesheet.flip_h = velocity.x > 0 if invert_flip else velocity.x < 0
 		
 		velocity += _current_pushback_intensity * _current_pushback_velocity
 		move_and_slide()
@@ -145,7 +154,8 @@ func set_sprite_direction(look_at_location : Vector2):
 
 func _on_pathfinding_timer_timeout() -> void:
 	if is_instance_valid(get_target()) and !_is_in_override_navigation:
-		navigation_agent.target_position = get_target().global_position
+		var direction = (get_target().global_position - global_position).limit_length(min_nav_target_distance)
+		navigation_agent.target_position = get_target().global_position - direction
 
 
 func set_movement_speed_multiplier(in_multiplier : float):
@@ -161,6 +171,7 @@ func move_to(new_position : Vector2) -> bool:
 	if !navigation_agent.is_target_reachable():
 		printerr("Target not reachable")
 		_is_in_override_navigation = false
+		navigation_agent.target_position = global_position # Just reset to itself
 		return false
 		
 	return true
@@ -185,6 +196,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func take_damage(instigator : CharacterBody2D, incoming_damage: float, pushback_velocity : Vector2 = Vector2.ZERO) -> void:
 	health -= incoming_damage
 	sprite_flash.flash(0.1, 0.2)
+	animated_sprite_flash.flash(0.1, 0.2)
 	if pushback_velocity.length_squared() > 0:
 		_current_pushback_intensity = 1.0
 		_current_pushback_velocity = pushback_velocity
@@ -232,7 +244,7 @@ func default_attack(in_damage : int):
 		finish_attack()
 		return
 
-	while(timer.time_left > 0.1):
+	while(timer and timer.time_left > 0.1):
 		if(!get_target()):
 			finish_attack()
 			break
@@ -252,13 +264,15 @@ func default_attack(in_damage : int):
 	finish_attack()
 
 
-func charge_attack(in_damage : int, position_arc_degrees = 90.0, position_arc_distance = 80.0, charge_speed_multiplier = 3.0, charge_audio_player : AudioStreamPlayer2D = null):
+func charge_attack(in_damage : int, charge_audio_player : AudioStreamPlayer2D = null, position_arc_degrees = 90.0, position_arc_distance = 80.0, charge_speed_multiplier = 3.0):
 	if(!get_target()):
 		finish_attack()
+		return
 	
 	# Move to random location on a half circle between player and enemy which is 80 pixels away from player
 	if !move_to(get_position_in_arc_before_target(position_arc_degrees, position_arc_distance)):
 		interrupt_attack() # Not reachable
+		return
 	
 	await target_reached
 	can_move = false
@@ -268,12 +282,14 @@ func charge_attack(in_damage : int, position_arc_degrees = 90.0, position_arc_di
 	
 	if(!get_target()):
 		interrupt_attack()
+		return
 	
 	set_sprite_direction(get_target().global_position) # Just flip sprites towards player
 	
 	set_movement_speed_multiplier(charge_speed_multiplier)
 	if !move_to(get_target().global_position + get_target_direction() * 30.0):
 		interrupt_attack() # Not reachable
+		return
 	
 	if charge_audio_player:
 		charge_audio_player.play()
@@ -335,6 +351,7 @@ func _clear_timers():
 	for timer in active_timers:
 		if timer:
 			timer.stop()
+			timer.queue_free()
 			
 	active_timers.clear()
 

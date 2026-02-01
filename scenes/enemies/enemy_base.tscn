@@ -13,11 +13,14 @@ shader = ExtResource("2_01wx1")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash = 0.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ho7jy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evjv1"]
+resource_local_to_scene = true
+shader = ExtResource("2_01wx1")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o10tv"]
-radius = 3.0
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_evjv1"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o10tv"]
 radius = 100.0
@@ -27,9 +30,10 @@ radius = 20.0
 
 [node name="SimpleEnemy2" type="CharacterBody2D" unique_id=616659278]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 9
+platform_on_leave = 2
 script = ExtResource("1_o10tv")
-health = 54.105
+health = 100.0
 
 [node name="EnemyPlaceholder" type="Sprite2D" parent="." unique_id=864650589]
 material = SubResource("ShaderMaterial_hm7hm")
@@ -38,19 +42,18 @@ texture = ExtResource("1_gsiem")
 script = ExtResource("4_hm7hm")
 
 [node name="EnemySpritesheet" type="AnimatedSprite2D" parent="." unique_id=1062563798]
-sprite_frames = SubResource("SpriteFrames_ho7jy")
+material = SubResource("ShaderMaterial_evjv1")
 script = ExtResource("5_2kgy0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783457394]
-position = Vector2(1, -5)
-shape = SubResource("CapsuleShape2D_o10tv")
+shape = SubResource("CircleShape2D_evjv1")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1472084244]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1297026147]
-position = Vector2(1, -5)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_o10tv")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1371594350]
@@ -58,7 +61,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=699821842]
-position = Vector2(1, -6)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_hm7hm")
 debug_color = Color(0.9918476, 0, 0.2662707, 0.41960785)
 

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d1at0hf6hgb6t"]
+
+[ext_resource type="PackedScene" uid="uid://dtu7noaxo562u" path="res://scenes/enemies/enemy_base.tscn" id="1_20sus"]
+[ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="2_etblj"]
+[ext_resource type="Script" uid="uid://be7pbpi2q1eg3" path="res://scenes/enemies/caveman_drawing_enemy.gd" id="2_yl6vw"]
+[ext_resource type="SpriteFrames" uid="uid://1reyxlji7v7h" path="res://art/sprites/EnemyCaveDrawingsSpriteFrames.tres" id="3_etblj"]
+[ext_resource type="PackedScene" uid="uid://dufb0fu1eqa21" path="res://scenes/enemies/cavemen_drawing_spear.tscn" id="3_ynni2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yl6vw"]
+resource_local_to_scene = true
+shader = ExtResource("2_etblj")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = 0.0
+
+[node name="CavemanDrawing" unique_id=616659278 instance=ExtResource("1_20sus")]
+collision_mask = 1
+script = ExtResource("2_yl6vw")
+spear_scene = ExtResource("3_ynni2")
+min_nav_target_distance = 150.0
+health = 3.0
+
+[node name="EnemyPlaceholder" parent="." index="0" unique_id=864650589]
+visible = false
+material = SubResource("ShaderMaterial_yl6vw")
+
+[node name="EnemySpritesheet" parent="." index="1" unique_id=1062563798]
+sprite_frames = ExtResource("3_etblj")
+animation = &"Walk"
+autoplay = "Idle"
+frame_progress = 0.0058140755
+offset = Vector2(0, -4)
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
+visible = false
+
+[node name="CollisionShape2D" parent="DetectionArea" parent_id_path=PackedInt32Array(1472084244) index="0" unique_id=1297026147]
+visible = false
+
+[node name="CollisionShape2D" parent="AttackArea" parent_id_path=PackedInt32Array(1371594350) index="0" unique_id=699821842]
+visible = false
+
+[connection signal="animation_finished" from="EnemySpritesheet" to="." method="_on_enemy_spritesheet_animation_finished"]

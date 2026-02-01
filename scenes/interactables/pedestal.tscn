@@ -16,6 +16,7 @@ collision_layer = 8
 script = ExtResource("2_fros2")
 interaction_text = ""
 pedestal_item_frame = 0
+base_frame = 37
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=520145219]
 position = Vector2(0, -6)

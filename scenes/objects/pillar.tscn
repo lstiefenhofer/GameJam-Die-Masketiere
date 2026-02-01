@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bws75euvoskci"]
+
+[ext_resource type="Texture2D" uid="uid://bh7hagij7i1hs" path="res://art/sprites/antique_pillars.png" id="1_sbj11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_277nc"]
+size = Vector2(16, 11)
+
+[node name="Pillar" type="StaticBody2D" unique_id=397581080]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564454569]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_277nc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=89741872]
+position = Vector2(0, -22.5)
+texture = ExtResource("1_sbj11")
+hframes = 2

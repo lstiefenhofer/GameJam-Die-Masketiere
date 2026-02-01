@@ -5,8 +5,10 @@
 [ext_resource type="Shader" uid="uid://cd0q8jdhx5vpx" path="res://shaders/flash.gdshader" id="3_ofi0u"]
 [ext_resource type="Texture2D" uid="uid://o6je6qkv6gf0" path="res://icon.png" id="4_f5yay"]
 [ext_resource type="Texture2D" uid="uid://bxeokun43mkpt" path="res://art/entities/mammooth-spritesheet.png" id="5_ofi0u"]
+[ext_resource type="AudioStream" uid="uid://bcqht4rxgpqjy" path="res://assets/sounds/Mammut Trumpet.wav" id="6_pb03d"]
+[ext_resource type="Script" uid="uid://5pxkpp87aviy" path="res://overlap_check.gd" id="7_e3ykl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofi0u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb03d"]
 resource_local_to_scene = true
 shader = ExtResource("3_ofi0u")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
@@ -39,15 +41,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_ofi0u")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"Attack",
 "speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s5g6u")
 }],
-"loop": false,
-"name": &"idle",
+"loop": true,
+"name": &"Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -61,28 +63,47 @@ animations = [{
 "texture": SubResource("AtlasTexture_e3ykl")
 }],
 "loop": true,
-"name": &"run",
+"name": &"Walk",
 "speed": 5.0
 }]
 
-[node name="Mammoth" unique_id=616659278 instance=ExtResource("1_el54p")]
+[node name="Mammoth" unique_id=616659278 node_paths=PackedStringArray("trumpet", "stomp") instance=ExtResource("1_el54p")]
 script = ExtResource("2_f5yay")
+trumpet = NodePath("MammothTrumpet")
+stomp = NodePath("MammothStomp")
+charge_damage = 1
+stomp_damage = 2
+stomp_radius = 150.0
+invert_flip = true
+health = 5.0
 
 [node name="EnemyPlaceholder" parent="." index="0" unique_id=864650589]
 visible = false
-material = SubResource("ShaderMaterial_ofi0u")
+material = SubResource("ShaderMaterial_pb03d")
 texture = ExtResource("4_f5yay")
 
 [node name="EnemySpritesheet" parent="." index="1" unique_id=1062563798]
 sprite_frames = SubResource("SpriteFrames_s5g6u")
-animation = &"idle"
+animation = &"Walk"
+autoplay = "Walk"
+offset = Vector2(0, -7.035)
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1783457394]
 position = Vector2(1, 1)
 rotation = 1.5707964
 
 [node name="CollisionShape2D" parent="AttackArea" parent_id_path=PackedInt32Array(1371594350) index="0" unique_id=699821842]
+visible = false
 position = Vector2(0, -1)
 
 [node name="NavigationAgent2D" parent="." index="5" unique_id=2132310080]
 max_speed = 100.0
+
+[node name="MammothTrumpet" type="AudioStreamPlayer2D" parent="." index="8" unique_id=1744999449]
+stream = ExtResource("6_pb03d")
+
+[node name="MammothStomp" type="AudioStreamPlayer2D" parent="." index="9" unique_id=1778882578]
+stream = ExtResource("6_pb03d")
+
+[node name="OverlapCheck" type="Node2D" parent="." index="10" unique_id=1355649308]
+script = ExtResource("7_e3ykl")

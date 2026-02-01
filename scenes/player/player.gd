@@ -44,7 +44,7 @@ func _process(_delta: float) -> void:
 	elif velocity.length_squared() < 1.0 and legs.get_animation() != "Idle":
 		legs.play("Idle")
 	
-	if abs(velocity.x) > 0:
+	if abs(velocity.x) > 2:
 		legs.flip_h = velocity.x < 0
 		body.flip_h = velocity.x < 0
 		attack_effect.flip_h = velocity.x < 0

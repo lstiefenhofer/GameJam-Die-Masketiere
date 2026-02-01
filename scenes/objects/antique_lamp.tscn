@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://tc1f5rfc0vnp"]
+
+[ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="1_aj2tt"]
+[ext_resource type="Texture2D" uid="uid://c1c776pxe5a4l" path="res://art/sprites/antique_lamp.png" id="2_rjc0s"]
+
+[node name="AntiqueLamp" unique_id=1077203162 instance=ExtResource("1_aj2tt")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=1827380965]
+texture = ExtResource("2_rjc0s")

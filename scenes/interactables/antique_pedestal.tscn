@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjlyqqr5cirn4"]
+
+[ext_resource type="PackedScene" uid="uid://bgq18ctougppm" path="res://scenes/interactables/pedestal.tscn" id="1_g2wp5"]
+[ext_resource type="Texture2D" uid="uid://cyjvl4gc1r0iv" path="res://art/sprites/antique_pedestal_small.png" id="2_vfchb"]
+
+[node name="AntiquePedestal" unique_id=75471443 instance=ExtResource("1_g2wp5")]
+base_frame = 0
+hide_item = false
+switch_pedestal_sprite = true
+
+[node name="Pedestal" parent="." index="2" unique_id=1231359795]
+position = Vector2(0, -16)
+texture = ExtResource("2_vfchb")
+hframes = 5
+vframes = 1
+frame = 0
+
+[node name="PedestalItem" parent="." index="3" unique_id=1799633996]
+visible = false
