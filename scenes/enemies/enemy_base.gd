@@ -24,6 +24,7 @@ var _default_speed = 50
 @onready var animated_sprite_flash: AnimatedSpriteFlash = $EnemySpritesheet
 @onready var attack_sprite: Sprite2D = $AttackSprite
 @onready var nearby_shape: CollisionShape2D = $DetectionArea/CollisionShape2D
+@onready var hit_sounds: AudioStreamPlayer2D = $HitSounds
 
 var target: Node2D
 var is_player_in_attack_range: bool = false
@@ -197,6 +198,7 @@ func take_damage(instigator : CharacterBody2D, incoming_damage: float, pushback_
 	health -= incoming_damage
 	sprite_flash.flash(0.1, 0.2)
 	animated_sprite_flash.flash(0.1, 0.2)
+	hit_sounds.play()
 	if pushback_velocity.length_squared() > 0:
 		_current_pushback_intensity = 1.0
 		_current_pushback_velocity = pushback_velocity
