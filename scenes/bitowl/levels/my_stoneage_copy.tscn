@@ -122,17 +122,13 @@ position = Vector2(-4, 20)
 texture = ExtResource("8_l4dt6")
 
 [node name="Pedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="0" unique_id=610884856 instance=ExtResource("5_2y6o8")]
-position = Vector2(164, 174)
+position = Vector2(112, 81)
 interaction_text = "Pickaxe, Stone Age"
-hide_item = true
-switch_pedestal_sprite = false
 
 [node name="Pedestal2" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="1" unique_id=1529930657 instance=ExtResource("6_2lhn6")]
 position = Vector2(251, 153)
 interaction_text = "Fire, first discovered by man."
 pedestal_item_frame = 2
-hide_item = true
-switch_pedestal_sprite = false
 
 [node name="lamp" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="2" unique_id=1077203162 instance=ExtResource("8_ljss4")]
 position = Vector2(34, -23)
@@ -147,12 +143,12 @@ position = Vector2(100, -23)
 position = Vector2(130, -22)
 
 [node name="AntiquePedestal" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="6" unique_id=1864882501 instance=ExtResource("11_2y6o8")]
-position = Vector2(190, 131)
+position = Vector2(97, 34)
 interaction_text = "asdf"
 pedestal_item_frame = 3
 
 [node name="AntiquePedestalTall" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="7" unique_id=507075269 instance=ExtResource("12_2lhn6")]
-position = Vector2(215, 167)
+position = Vector2(94, 58)
 pedestal_item_frame = 5
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(437125383) index="0" unique_id=9496302]
