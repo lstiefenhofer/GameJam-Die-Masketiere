@@ -52,7 +52,6 @@ func _on_attack_signal(duration: float) -> void:
 
 	attack_count_down.hide()
 
-
 func _on_quit_pressed() -> void:
 	Globals.quit()
 

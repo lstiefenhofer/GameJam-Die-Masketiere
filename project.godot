@@ -23,6 +23,7 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 [autoload]
 
 Globals="*uid://d3gq1lcn4ob03"
+SaveStuffToDisk="*uid://vosv0fdt00nh"
 
 [display]
 

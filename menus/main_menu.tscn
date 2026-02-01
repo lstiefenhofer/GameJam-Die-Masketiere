@@ -254,6 +254,7 @@ theme_override_constants/margin_top = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsMenu" type="VBoxContainer" parent="VBoxContainer/MarginBox" unique_id=1004986682]
+visible = false
 custom_minimum_size = Vector2(240, 120)
 layout_mode = 2
 theme_override_constants/separation = 12
@@ -347,11 +348,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
+[node name="Continue" type="Button" parent="VBoxContainer/MarginBox/MainMenu" unique_id=1769881920]
+layout_mode = 2
+disabled = true
+text = "Continue"
+
 [node name="StartGame" type="Button" parent="VBoxContainer/MarginBox/MainMenu" unique_id=883643277]
 layout_mode = 2
 size_flags_horizontal = 5
 theme = ExtResource("3_yjgyn")
-text = "Start Game"
+text = "New game"
 
 [node name="Settings" type="Button" parent="VBoxContainer/MarginBox/MainMenu" unique_id=516935539]
 layout_mode = 2
@@ -370,6 +376,7 @@ text = "Quit"
 [connection signal="value_changed" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeBackground" to="." method="_on_volume_background_value_changed"]
 [connection signal="toggled" from="VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/SettingsMenu/Button" to="." method="_on_settings_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginBox/MainMenu/Quit" to="." method="_on_quit_pressed"]
