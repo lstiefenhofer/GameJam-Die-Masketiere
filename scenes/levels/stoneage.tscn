@@ -8,27 +8,27 @@
 [ext_resource type="Texture2D" uid="uid://ci36up65g667k" path="res://art/sprites/CaveDrawingsSprites.png" id="4_stvde"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/caveman_drawing_enemy.tscn" id="7_8xos2"]
 [ext_resource type="PackedScene" uid="uid://bvf7ie61ct7ei" path="res://scenes/interactables/mask_on_pedestal.tscn" id="7_j5bmt"]
-[ext_resource type="PackedScene" uid="uid://duc0f1iyioujj" path="res://scenes/interactables/mask.tscn" id="7_qe77c"]
+[ext_resource type="PackedScene" uid="uid://dgq38ubwibi54" path="res://scenes/interactables/mask.tscn" id="7_qe77c"]
 [ext_resource type="PackedScene" uid="uid://bjrbjg8lm638c" path="res://scenes/interactables/button.tscn" id="8_epymk"]
 [ext_resource type="PackedScene" uid="uid://dhj2712o4gmi" path="res://scenes/objects/fake_pedestral.tscn" id="9_1mor0"]
-[ext_resource type="PackedScene" path="res://scenes/objects/lamp.tscn" id="9_6d0s8"]
+[ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="9_6d0s8"]
+[ext_resource type="Resource" uid="uid://bcn380lasmeom" path="res://scenes/collectibles/MaskInfos/stoneage_mask_1.tres" id="9_70257"]
+[ext_resource type="Texture2D" uid="uid://c60xfegnfiurb" path="res://art/masks/StoneAgeMaskPart1.png" id="10_orb5w"]
+[ext_resource type="Resource" uid="uid://c1dkrflvupvta" path="res://scenes/collectibles/MaskInfos/stoneage_mask_2.tres" id="11_mj601"]
+[ext_resource type="Texture2D" uid="uid://c7nddwiqf1u31" path="res://art/masks/StoneAgeMaskPart2.png" id="12_6ey7e"]
 
-[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4", "additional_enemy_waves") instance=ExtResource("1_cwsmi")]
+[node name="StoneageLevel" unique_id=1222927860 node_paths=PackedStringArray("closed_door_one", "closed_door_two", "fake_pedestral", "fake_pedestral_2", "fake_pedestral_3", "fake_pedestral_4") instance=ExtResource("1_cwsmi")]
 script = ExtResource("2_6d0s8")
+level_id = 0
+enemy_scenes = Array[PackedScene]([])
 closed_door_one = NodePath("Objects/ClosedDoorForMaskOne")
 closed_door_two = NodePath("Objects/ClosedDoorForMaskOne2")
 fake_pedestral = NodePath("Objects/fake_Pedestral")
 fake_pedestral_2 = NodePath("Objects/fake_Pedestral2")
 fake_pedestral_3 = NodePath("Objects/fake_Pedestral3")
 fake_pedestral_4 = NodePath("Objects/fake_Pedestral4")
-level_id = 0
-enemy_scenes = Array[PackedScene]([])
-additional_enemy_waves = [NodePath("Enemies/ButtonOneMonsterWave"), NodePath("Enemies/ButtonTwoMonsterWave")]
 
 [node name="Stoneage Theme" parent="." index="0" unique_id=1100986812 instance=ExtResource("4_251vq")]
-
-[node name="Darkness" parent="." index="1" unique_id=548543368]
-visible = false
 
 [node name="GroundLayer" type="TileMapLayer" parent="Tilemaps" parent_id_path=PackedInt32Array(873392170) index="0" unique_id=876772918]
 z_index = -1
@@ -213,10 +213,20 @@ position = Vector2(-387, -974)
 
 [node name="Mask on Pedestal (one)" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="5" unique_id=726423690 instance=ExtResource("7_j5bmt")]
 position = Vector2(749, 510)
+mask_info = ExtResource("9_70257")
+
+[node name="MaskSprite" parent="Objects/Mask on Pedestal (one)" index="4" unique_id=810192070]
+texture = ExtResource("10_orb5w")
+offset = Vector2(-8.79, 0)
 
 [node name="Mask on Pedestal (two)" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="6" unique_id=1497239872 instance=ExtResource("7_j5bmt")]
 position = Vector2(798, -823)
 mask = 1
+mask_info = ExtResource("11_mj601")
+
+[node name="MaskSprite" parent="Objects/Mask on Pedestal (two)" index="4" unique_id=810192070]
+texture = ExtResource("12_6ey7e")
+offset = Vector2(-9.155, 0)
 
 [node name="Button" parent="Objects" parent_id_path=PackedInt32Array(1880016874) index="7" unique_id=1112941483 instance=ExtResource("8_epymk")]
 position = Vector2(976, 305)
@@ -287,3 +297,6 @@ position = Vector2(901, -284)
 
 [connection signal="button_pressed" from="Objects/Button" to="." method="_on_button_pressed_open_door"]
 [connection signal="button_pressed" from="Objects/Button2" to="." method="_on_button_pressed_open_second_door"]
+
+[editable path="Objects/Mask on Pedestal (one)"]
+[editable path="Objects/Mask on Pedestal (two)"]
