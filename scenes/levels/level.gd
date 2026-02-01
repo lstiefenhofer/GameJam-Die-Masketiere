@@ -46,7 +46,6 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	var enemy_scene = enemy_scenes.pick_random()
 	if not enemy_scene:
 		return
-	var enemy_scene = enemy_scenes.pick_random()
 	var enemy = enemy_scene.instantiate()
 
 	var spawn_point = enemy_spawn_points.get_children().pick_random()
