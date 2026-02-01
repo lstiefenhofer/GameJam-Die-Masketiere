@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dfbdrcpshx1h8"]
+
+[ext_resource type="PackedScene" uid="uid://c20v8dl35dy43" path="res://scenes/interactables/interactable.tscn" id="1_0w50j"]
+[ext_resource type="Script" uid="uid://cddtunwkvibhe" path="res://scenes/interactables/destroayable_pillar.gd" id="2_qt6rd"]
+[ext_resource type="PackedScene" path="res://scenes/objects/pillar.tscn" id="2_sr3gk"]
+
+[node name="DestroayablePillar" unique_id=75471443 instance=ExtResource("1_0w50j")]
+script = ExtResource("2_qt6rd")
+
+[node name="Pillar" parent="." index="1" unique_id=397581080 instance=ExtResource("2_sr3gk")]
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(2015261441) index="0" unique_id=1887153074]
+position = Vector2(0, -3)
