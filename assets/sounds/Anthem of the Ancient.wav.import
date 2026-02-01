@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqyx0e7oapk1g"
+path="res://.godot/imported/Anthem of the Ancient.wav-7a50d56c1d5d86891e9a541b04f84814.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Anthem of the Ancient.wav"
+dest_files=["res://.godot/imported/Anthem of the Ancient.wav-7a50d56c1d5d86891e9a541b04f84814.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

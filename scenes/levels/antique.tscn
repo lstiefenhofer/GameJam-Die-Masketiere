@@ -4,16 +4,17 @@
 [ext_resource type="TileSet" uid="uid://cj36bnbmyq1f4" path="res://tilesets/antique.tres" id="2_sn8dm"]
 [ext_resource type="Script" uid="uid://d30k2574ci8gx" path="res://scenes/ground_tilemap.gd" id="3_0x5pl"]
 [ext_resource type="PackedScene" uid="uid://rg2mybxmh3wx" path="res://scenes/objects/lamp.tscn" id="5_0x5pl"]
-[ext_resource type="PackedScene" uid="uid://dfbdrcpshx1h8" path="res://scenes/interactables/destroayable_pillar.tscn" id="5_mkn5x"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/destroayable_pillar.tscn" id="5_mkn5x"]
 [ext_resource type="PackedScene" uid="uid://dgq38ubwibi54" path="res://scenes/interactables/mask.tscn" id="6_mkn5x"]
 [ext_resource type="Resource" uid="uid://deqqawvtecx7c" path="res://scenes/collectibles/MaskInfos/antique_mask_2.tres" id="7_j2tgi"]
 [ext_resource type="Texture2D" uid="uid://b1jqa52mjr1nl" path="res://art/masks/AntiqueMaskRightFinal.png" id="8_0gbkt"]
-[ext_resource type="PackedScene" uid="uid://bjlyqqr5cirn4" path="res://scenes/interactables/antique_pedestal.tscn" id="8_mfjjx"]
+[ext_resource type="PackedScene" path="res://scenes/interactables/antique_pedestal.tscn" id="8_mfjjx"]
 [ext_resource type="Resource" uid="uid://cw6881ofjimg3" path="res://scenes/collectibles/MaskInfos/antique_mask_1.tres" id="9_f1lxh"]
 [ext_resource type="Texture2D" uid="uid://cfkyb437apit5" path="res://art/masks/AntiqueMaskLeftFinal.png" id="10_kxigy"]
 [ext_resource type="Resource" uid="uid://dyi1bdkwi3j7q" path="res://scenes/collectibles/MaskInfos/antique_mask_3.tres" id="11_8wkef"]
 [ext_resource type="Texture2D" uid="uid://qd63ou4i46nq" path="res://art/masks/AntiqueMaskBottomFinal.png" id="12_pyd20"]
-[ext_resource type="PackedScene" uid="uid://yqnr12vg33mm" path="res://scenes/enemies/spartan_enemy.tscn" id="15_j2tgi"]
+[ext_resource type="AudioStream" uid="uid://bqyx0e7oapk1g" path="res://assets/sounds/Anthem of the Ancient.wav" id="15_0gbkt"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/spartan_enemy.tscn" id="15_j2tgi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_imu10"]
 
@@ -297,6 +298,12 @@ hide_item = true
 
 [node name="EnemySpawnTimer" parent="." index="11" unique_id=1359204760]
 wait_time = 10.0
+
+[node name="AnthemOfTheAncient" type="AudioStreamPlayer" parent="." index="12" unique_id=1054620268]
+stream = ExtResource("15_0gbkt")
+volume_db = -5.0
+autoplay = true
+bus = &"Background"
 
 [editable path="ArenaMask"]
 [editable path="AltarMask"]
