@@ -1,5 +1,6 @@
 extends Control
 
+@onready var continue_btn: Button = $VBoxContainer/MarginBox/MainMenu/Continue
 @onready var main_menu: VBoxContainer = $VBoxContainer/MarginBox/MainMenu
 @onready var settings_menu: VBoxContainer = $VBoxContainer/MarginBox/SettingsMenu
 
@@ -8,14 +9,17 @@ extends Control
 @onready var volume_background: HSlider = $VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Sound/VBoxContainer/VolumeBackground
 @onready var fullscreen_toggle: CheckButton = $VBoxContainer/MarginBox/SettingsMenu/HBoxContainer/Graphics/VBoxContainer/FullscreenToggle
 
+@export var fade_duration: float = 0.5
+
 var config := ConfigFile.new()
 const SETTINGS_PATH = "user://settings.cfg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	TransitionOverlay.fade_out(fade_duration)
 	Globals.setup_hover(get_tree().get_root())
 	settings_menu.visible = false
-
+	
 	if config.load(SETTINGS_PATH) == OK:
 		var master = config.get_value("audio", "master", 1.0)
 		var effects = config.get_value("audio", "effects", 1.0)
@@ -35,10 +39,15 @@ func _ready() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _process(_delta: float) -> void:
+	if SaveStuffToDisk.last_level != Globals.LevelId.None:
+		continue_btn.disabled = false
+	else:
+		continue_btn.disabled = true
+		
 
 func _on_start_game_pressed() -> void:
+	await TransitionOverlay.fade_to_black(fade_duration)
 	get_tree().change_scene_to_file("res://scenes/levels/stoneage.tscn")
 
 
@@ -86,3 +95,9 @@ func _on_fullscreen_toggle_toggled(toggled_on: bool) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	config.set_value("video", "fullscreen", toggled_on)
 	config.save(SETTINGS_PATH)
+
+
+func _on_continue_pressed() -> void:
+	var level = Globals.LevelLookup[SaveStuffToDisk.last_level]
+	await TransitionOverlay.fade_to_black(fade_duration)
+	get_tree().change_scene_to_file(level)

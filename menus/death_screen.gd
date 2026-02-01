@@ -13,9 +13,8 @@ func _ready() -> void:
 	await get_tree().create_timer(time).timeout
 	menu.show()
 	
-	var level_names = ["Level", "AntiqueLevel", "StoneAgeLevel", "StoneageLevel"]
 	for node in get_tree().get_root().get_children():
-		if node.name in level_names:
+		if node.name in Globals.level_names:
 			node.queue_free()
 			coming_from_level = node.level_id
 

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvwnpsteeh3fi"]
+
+[ext_resource type="Script" uid="uid://b3xypirxk5kqn" path="res://scenes/transition_overlay.gd" id="1_rr7ak"]
+[ext_resource type="Material" uid="uid://pylwj71dvexw" path="res://materials/canvas_unshaded.tres" id="2_5j3xt"]
+
+[node name="TransitionOverlay" type="CanvasLayer" unique_id=2127097179 node_paths=PackedStringArray("color_rect")]
+layer = 4
+script = ExtResource("1_rr7ak")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=938353042]
+material = ExtResource("2_5j3xt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

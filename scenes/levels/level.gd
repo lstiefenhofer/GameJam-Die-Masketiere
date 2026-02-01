@@ -22,6 +22,8 @@ func _ready() -> void:
 	for enemy in enemies.get_children():
 		if "target" in enemy:
 			enemy.target = player
+	
+	TransitionOverlay.fade_out(1.0)
 			
 	Globals.mask_collected.connect(_on_mask_collected)
 	
@@ -88,7 +90,11 @@ func _on_mask_collected(mask_id: int, mask_info:MaskInfo) -> void:
 func transition_to_level(level: Globals.LevelId) -> void:
 	call_deferred("_transition_to_level", Globals.LevelLookup[level])
 	
+
 func _transition_to_level(level: String) -> void:
+	get_tree().paused = true
+	await TransitionOverlay.fade_to_black(1.0)
+	get_tree().paused = false
 	get_tree().change_scene_to_file(level)
 
 

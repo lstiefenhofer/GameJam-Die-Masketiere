@@ -10,8 +10,9 @@ enum LevelId {
 	StoneAge,
 	Antique,
 	StoneAgeCopy,
+	None,
 }
-
+var level_names = ["Level", "AntiqueLevel", "StoneAgeLevel", "StoneageLevel"]
 var LevelLookup: Dictionary[LevelId, String] = {
 	LevelId.Antique: "res://scenes/levels/antique.tscn",
 	LevelId.StoneAge: "res://scenes/levels/stoneage.tscn",
@@ -43,7 +44,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(cursor_normal)
 
 func quit():
-	print("Quiting game")
+	SaveStuffToDisk.save_last_level(SaveStuffToDisk.last_level)
 	get_tree().quit()
 
 func reset_player() -> void:
@@ -55,7 +56,16 @@ func reset_player() -> void:
 	player_health = INITIAL_PLAYER_HEALTH
 	get_tree().paused = false
 
+func get_current_level() -> LevelId:
+	var ret = SaveStuffToDisk.last_level
+	for node in get_tree().get_root().get_children():
+		if node.name in level_names:
+			node.queue_free()
+			ret = node.level_id
+	return ret
+
 func goto_main_menu() -> void:
+	SaveStuffToDisk.save_last_level(get_current_level())
 	reset_player()
 	get_tree().change_scene_to_packed(MAIN_MENU)
 
@@ -70,7 +80,10 @@ func setup_hover(node: Node):
 		if child is Node:
 			setup_hover(child)
 
-func _on_hover(_control: Control):
+func _on_hover(control: Control):
+	if control is BaseButton:
+		if control.disabled:
+			return
 	if cursor_2x:
 		Input.set_custom_mouse_cursor(cursor_hover_2x)
 	else:

@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b1thiosmou6ai"]
+
+[ext_resource type="AudioStream" uid="uid://djcd6jppfxwew" path="res://assets/sounds/Weapon swing 1.mp3" id="1_gd6yn"]
+[ext_resource type="AudioStream" uid="uid://rcefba26ybla" path="res://assets/sounds/Weapon swing 2.mp3" id="2_5d2dc"]
+[ext_resource type="AudioStream" uid="uid://cuo3pos11m3d8" path="res://assets/sounds/Weapon swing 3.mp3" id="3_0bk7k"]
+[ext_resource type="AudioStream" uid="uid://cb1nlyqm811x7" path="res://assets/sounds/Weapon swing 4.mp3" id="4_tqj8y"]
+[ext_resource type="AudioStream" uid="uid://dwx3prp203pvs" path="res://assets/sounds/Weapon swing 5.mp3" id="5_q86kd"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_gd6yn")
+stream_1/stream = ExtResource("2_5d2dc")
+stream_2/stream = ExtResource("3_0bk7k")
+stream_3/stream = ExtResource("4_tqj8y")
+stream_4/stream = ExtResource("5_q86kd")

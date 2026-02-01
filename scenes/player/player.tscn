@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://sowh21mrf481" path="res://assets/sounds/footstep_randomizer.tres" id="8_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://c733b3h88vgop" path="res://art/sprites/light_stronger.png" id="10_h17s1"]
 [ext_resource type="Script" uid="uid://dj3a5ixluat1v" path="res://scenes/player/mask_attach_parent.gd" id="11_fm80t"]
+[ext_resource type="AudioStream" uid="uid://b1thiosmou6ai" path="res://assets/sounds/waepon_swing_randomizer.tres" id="12_fm80t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x7p2l"]
 radius = 3.0
@@ -26,7 +27,7 @@ shader_parameter/flash = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 21.0
 
-[node name="Player" type="CharacterBody2D" unique_id=2059150865 node_paths=PackedStringArray("legs", "body", "attack_effect", "footstep_sound_player", "mask_attach_parent")]
+[node name="Player" type="CharacterBody2D" unique_id=2059150865 node_paths=PackedStringArray("legs", "body", "attack_effect", "footstep_sound_player", "mask_attach_parent", "attack_swing_sounds")]
 collision_layer = 2
 collision_mask = 11
 platform_on_leave = 2
@@ -40,6 +41,7 @@ death_scene = ExtResource("2_0owmy")
 footstep_sound_player = NodePath("RunningOnConcrete")
 mask_attach_parent = NodePath("MaskAttachParent")
 point_light_scale_per_mask_count = Array[float]([0.6, 0.75, 0.9, 1.1])
+attack_swing_sounds = NodePath("AttackSwingSounds")
 
 [node name="Interface" parent="." unique_id=55518087 instance=ExtResource("2_75vfm")]
 visible = false
@@ -113,6 +115,11 @@ anim_attack_offsets = Array[Vector2]([Vector2(0, 1), Vector2(1, 1)])
 anim_walk_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
 anim_hit_offsets = Array[Vector2]([Vector2(-1, 1)])
 animated_sprite = NodePath("../PlayerBody")
+
+[node name="AttackSwingSounds" type="AudioStreamPlayer2D" parent="." unique_id=1033397576]
+stream = ExtResource("12_fm80t")
+volume_db = -4.0
+bus = &"SFX"
 
 [connection signal="frame_changed" from="PlayerLegs" to="." method="_on_player_legs_frame_changed"]
 [connection signal="animation_finished" from="PlayerBody" to="." method="_on_player_body_animation_finished"]
