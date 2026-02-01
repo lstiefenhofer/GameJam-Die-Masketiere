@@ -1,8 +1,11 @@
 [gd_scene format=4 uid="uid://x0rexbw6sajn"]
 
 [ext_resource type="Texture2D" uid="uid://b7hejkrsjs8r3" path="res://art/tilemaps/Stoneage.png" id="1_ggdng"]
+[ext_resource type="Theme" uid="uid://dwts86h6tnidg" path="res://menus/ui_theme.tres" id="1_m4ddv"]
 [ext_resource type="Shader" uid="uid://ca0f1tiavlq3c" path="res://menus/end_screen_background.gdshader" id="1_m7ycf"]
+[ext_resource type="Script" uid="uid://b7a3a0kege7df" path="res://menus/end_screen.gd" id="2_27t07"]
 [ext_resource type="Texture2D" uid="uid://bpbaeo0741unn" path="res://art/tilemaps/antique.png" id="2_m7ycf"]
+[ext_resource type="Material" uid="uid://pylwj71dvexw" path="res://materials/canvas_unshaded.tres" id="4_qd5no"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qd5no"]
 shader = ExtResource("1_m7ycf")
@@ -250,6 +253,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_m4ddv")
+script = ExtResource("2_27t07")
 
 [node name="Background" type="Control" parent="." unique_id=467554270]
 z_index = -3
@@ -288,6 +293,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 125
 theme_override_constants/margin_bottom = 150
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=615486987]
@@ -309,3 +315,42 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "You have conquered the ages"
 horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1098712656]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1078147449]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MainMenu" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1543939338]
+material = ExtResource("4_qd5no")
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1004296335]
+material = ExtResource("4_qd5no")
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=222722178]
+layout_mode = 2
+text = "Global Game Jam 2026
+
+Made by
+
+@bitowl
+@CiaoKakao
+@lstiefenhofer
+@Marakasch
+@philippwendel
+@robin.hohni"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
